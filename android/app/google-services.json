@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "952446890552",
+    "project_id": "beauty-products-e230f",
+    "storage_bucket": "beauty-products-e230f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952446890552:android:464f84e923c18991812ccd",
+        "android_client_info": {
+          "package_name": "com.example.beautyproducts"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBauIXTQhbt3gcI3RNJwvxtrjYeZwQDaI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
