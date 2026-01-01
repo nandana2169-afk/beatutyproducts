@@ -1,16 +1,10 @@
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/Icons/icons.dart';
-import 'package:beautyproducts/screens/homescreen/haircare.dart';
-import 'package:beautyproducts/screens/homescreen/loreal.dart';
+import 'package:beautyproducts/screens/homescreen/hairproducteachone/detalipage.dart';
+import 'package:beautyproducts/screens/homescreen/notifications.dart';
+import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
+import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';
 import 'package:flutter/material.dart';
-
-// IMPORT YOUR EXISTING PAGES ONLY
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/loreal.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/rescue.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/dotkey.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/mini.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/minimalist.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/herbal.dart';
 
 class Haircareselect extends StatefulWidget {
   const Haircareselect({super.key});
@@ -20,49 +14,117 @@ class Haircareselect extends StatefulWidget {
 }
 
 class _HaircareselectState extends State<Haircareselect> {
-  List<String> listimage = ['assets/girls.jpg'];
-
-  List<String> listimages = [
-    'assets/loreal.jpg',
-    'assets/rescue.jpg',
-    'assets/dotkey.jpg',
-    'assets/mini.jpg',
-    'assets/cocoeve.jpg',
-    'assets/herbal.jpg',
-  ];
-
-  List<String> names = [
-    "L'Oreal Moisture",
-    "LU Rescue Shampoo",
-    "Dot & Key Care",
-    "Mini Hair Combo",
-    "Minimalist Hair",
-    "Herbal Protection",
-  ];
-
-  List<String> offer = [
-    "20% OFF",
-    "15% OFF",
-    "10% OFF",
-    "25% OFF",
-    "18% OFF",
-    "30% OFF",
-  ];
-
-  List<int> price = [1200, 999, 650, 1500, 1300, 850];
-
-  List<int> discountPrice = [960, 849, 585, 1125, 1066, 595];
-
-  List<double> ratings = [4.5, 4.0, 4.2, 3.9, 4.6, 4.1];
-
-  // 🔹 ONLY THIS IS ADDED (existing pages)
-  final List<Widget> pages = const [
-    Loreal(),
-    Rescue(),
-    Dotkey(),
-    Mini(),
-    Minimalist(),
-    Herbal(),
+  // This is your master list of products
+  final List<Product> products = [
+    Product(
+      name: "L'Oreal Moisture",
+      subtitle: "Hyaluron Moisture Shampoo",
+      description:
+          "Infused with Hyaluronic Acid to provide 72 hours of hydration.",
+      images: ['assets/loreal.jpg'],
+      rating: 4.5,
+      boughtCount: "50k+",
+      ingredients: ["Hyaluronic Acid", "Aqua", "Salicylic Acid"],
+      concern: "Dryness",
+      hairType: "All",
+      scalpType: "Normal",
+      formulation: "Liquid",
+      preference: "Paraben Free",
+      price: 1200,
+      discountPrice: 960,
+      offer: "20% OFF",
+    ),
+    Product(
+      name: "LU Rescue Shampoo",
+      subtitle: "Damage Repair Formula",
+      description:
+          "Specifically designed for chemically treated and heat damaged hair.",
+      images: ['assets/rescue.jpg'],
+      rating: 4.0,
+      boughtCount: "30k+",
+      ingredients: ["Keratin", "Argan Oil"],
+      concern: "Damage Repair",
+      hairType: "Damaged",
+      scalpType: "Dry",
+      formulation: "Creamy",
+      preference: "Sulfate Free",
+      price: 999,
+      discountPrice: 849,
+      offer: "15% OFF",
+    ),
+    Product(
+      name: "Dot & Key",
+      subtitle: "Damage Repair Formula",
+      description:
+          "Specifically designed for chemically treated and heat damaged hair.",
+      images: ['assets/dotkey.jpg'],
+      rating: 4.0,
+      boughtCount: "30k+",
+      ingredients: ["Keratin", "Argan Oil"],
+      concern: "Damage Repair",
+      hairType: "Damaged",
+      scalpType: "Dry",
+      formulation: "Creamy",
+      preference: "Sulfate Free",
+      price: 999,
+      discountPrice: 849,
+      offer: "15% OFF",
+    ),
+    Product(
+      name: "HairBurst",
+      subtitle: "Damage Repair Formula",
+      description:
+          "Specifically designed for chemically treated and heat damaged hair.",
+      images: ['assets/mini.jpg'],
+      rating: 4.0,
+      boughtCount: "30k+",
+      ingredients: ["Keratin", "Argan Oil"],
+      concern: "Damage Repair",
+      hairType: "Damaged",
+      scalpType: "Dry",
+      formulation: "Creamy",
+      preference: "Sulfate Free",
+      price: 999,
+      discountPrice: 849,
+      offer: "15% OFF",
+    ),
+    Product(
+      name: "Coco & Eve",
+      subtitle: "Damage Repair Formula",
+      description:
+          "Specifically designed for chemically treated and heat damaged hair.",
+      images: ['assets/cocoeve.jpg'],
+      rating: 4.0,
+      boughtCount: "30k+",
+      ingredients: ["Keratin", "Argan Oil"],
+      concern: "Damage Repair",
+      hairType: "Damaged",
+      scalpType: "Dry",
+      formulation: "Creamy",
+      preference: "Sulfate Free",
+      price: 999,
+      discountPrice: 849,
+      offer: "15% OFF",
+    ),
+    Product(
+      name: "Truth & Care",
+      subtitle: "Damage Repair Formula",
+      description:
+          "Specifically designed for chemically treated and heat damaged hair.",
+      images: ['assets/herbal.jpg'],
+      rating: 4.0,
+      boughtCount: "30k+",
+      ingredients: ["Keratin", "Argan Oil"],
+      concern: "Damage Repair",
+      hairType: "Damaged",
+      scalpType: "Dry",
+      formulation: "Creamy",
+      preference: "Sulfate Free",
+      price: 999,
+      discountPrice: 849,
+      offer: "15% OFF",
+    ),
+    // ... You can add Dotkey, Mini, Minimalist, and Herbal here following the same pattern
   ];
 
   @override
@@ -72,13 +134,43 @@ class _HaircareselectState extends State<Haircareselect> {
         title: const Text(
           'Shampoo & Conditioners',
           style: TextStyle(fontWeight: FontWeight.bold),
-        ),leading: AppIcon.arrowandro,
-        // leading: IconButton(onPressed: (){  Navigator.push(
-        //                   context,
-        //                   MaterialPageRoute(
-        //                     builder: (context) => Haircare(),
-        //                   ));}, icon: AppIcon.arrowandro),
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: AppIcon.iconsapp,
+        ),
         backgroundColor: Appcolor.textcolor,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Notifications()),
+              );
+            },
+            icon: Icon(Icons.notifications, color: Appcolor.backcolor),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Likes()),
+              );
+            },
+            icon: Icon(Icons.favorite, color: Appcolor.backcolor),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Shopingbag()),
+              );
+            },
+            icon: Icon(Icons.shopping_bag, color: Appcolor.backcolor),
+          ),
+        ],
       ),
       backgroundColor: Appcolor.appcolor,
       body: SingleChildScrollView(
@@ -86,16 +178,15 @@ class _HaircareselectState extends State<Haircareselect> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-
+              // Hero Image
               Card(
                 elevation: 3,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
                 clipBehavior: Clip.antiAlias,
-                color: Appcolor.lightwhite,
                 child: Image.asset(
-                  listimage[0],
+                  'assets/girls.jpg',
                   fit: BoxFit.fill,
                   width: double.infinity,
                   height: 300,
@@ -104,23 +195,28 @@ class _HaircareselectState extends State<Haircareselect> {
 
               const SizedBox(height: 10),
 
+              // Product Grid
               GridView.builder(
-                itemCount: listimages.length,
+                itemCount: products.length,
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 12,
                   crossAxisSpacing: 12,
-                  childAspectRatio: 0.78,
+                  childAspectRatio: 0.75,
                 ),
                 itemBuilder: (context, index) {
+                  final item = products[index];
+
                   return InkWell(
                     onTap: () {
+                      // NAVIGATION HAPPENS HERE
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => pages[index],
+                          builder: (context) =>
+                              ProductDetailPage(product: item),
                         ),
                       );
                     },
@@ -134,82 +230,85 @@ class _HaircareselectState extends State<Haircareselect> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-
                           Expanded(
                             child: Image.asset(
-                              listimages[index],
+                              item.images[0],
                               fit: BoxFit.contain,
                               width: double.infinity,
                             ),
                           ),
-
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 6,
+                              vertical: 2,
+                            ),
                             child: Text(
-                              names[index],
+                              item.name,
                               maxLines: 1,
-                              style: TextStyle(
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
                                 fontSize: 13,
-                                color: Appcolor.backcolor,
                               ),
                             ),
                           ),
-
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                            padding: const EdgeInsets.symmetric(horizontal: 6),
                             child: Row(
                               children: [
                                 Text(
-                                  "₹${discountPrice[index]} ",
-                                  style: TextStyle(
+                                  "₹${item.discountPrice} ",
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 14,
-                                    color: Appcolor.backcolor,
                                   ),
                                 ),
                                 Text(
-                                  "₹${price[index]}",
-                                  style: TextStyle(
+                                  "₹${item.price}",
+                                  style: const TextStyle(
                                     fontSize: 12,
-                                    color: Appcolor.backcolor,
                                     decoration: TextDecoration.lineThrough,
+                                    color: Colors.grey,
                                   ),
                                 ),
                               ],
                             ),
                           ),
-
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 6),
                             child: Text(
-                              offer[index],
+                              item.offer,
                               style: TextStyle(
                                 color: Appcolor.introtext,
                                 fontSize: 11,
                               ),
                             ),
                           ),
-
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 6,
+                              vertical: 2,
+                            ),
                             child: Row(
                               children: [
-                                Icon(Icons.star, color: Appcolor.introtext, size: 16),
+                                const Icon(
+                                  Icons.star,
+                                  color: Colors.orange,
+                                  size: 14,
+                                ),
                                 const SizedBox(width: 4),
                                 Text(
-                                  ratings[index].toString(),
-                                  style: const TextStyle(fontWeight: FontWeight.w500),
+                                  item.rating.toString(),
+                                  style: const TextStyle(fontSize: 12),
                                 ),
                               ],
                             ),
                           ),
-
                           Padding(
                             padding: const EdgeInsets.only(left: 6, bottom: 5),
                             child: Text(
-                              "50k+ bought this",
+                              "${item.boughtCount} bought",
                               style: TextStyle(
-                                fontSize: 15,
+                                fontSize: 12,
                                 color: Appcolor.introtext,
                               ),
                             ),

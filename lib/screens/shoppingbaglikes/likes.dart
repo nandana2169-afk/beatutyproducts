@@ -16,7 +16,7 @@ class _LikesState extends State<Likes> {
       backgroundColor: Appcolor.appcolor,
       appBar: AppBar(
         backgroundColor: Appcolor.textcolor,
-        leading: IconButton(onPressed: () {}, icon: AppIcon.arrowandro),
+        leading: IconButton(onPressed: () { Navigator.pop(context);}, icon: AppIcon.iconsapp),
         title: const Text(
           'Your Wish',
           style: TextStyle(fontWeight: FontWeight.bold),

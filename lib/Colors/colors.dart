@@ -8,4 +8,6 @@ class Appcolor{
    static final lightwhite= Colors.white70;
      static final purples= const Color.fromARGB(255, 202, 96, 131);
       static final lightpurples= const Color.fromARGB(255, 143, 113, 195);
+
+  static var yellow;
 }

@@ -1,5 +1,10 @@
 import 'package:beautyproducts/Colors/colors.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/bathandskin.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/bathselect.dart';
 import 'package:beautyproducts/screens/homescreen/haircare.dart';
+import 'package:beautyproducts/screens/homescreen/notifications.dart';
+import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
+import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';
 import 'package:beautyproducts/textformfield/textformfield.dart';
 import 'package:flutter/material.dart';
 
@@ -63,8 +68,8 @@ class _HomepageState extends State<Homepage> {
     if (index == 0) {
       Navigator.push(context, MaterialPageRoute(builder: (context) => Haircare()));
     } else if (index == 1) {
-  //     Navigator.push(context, MaterialPageRoute(builder: (context) => BathSkin()));
-  //   } else if (index == 2) {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Bathandskin()));
+    } else if (index == 2) {
   //     Navigator.push(context, MaterialPageRoute(builder: (context) => SkinCare()));
   //   } else if (index == 3) {
   //     Navigator.push(context, MaterialPageRoute(builder: (context) => SkinTools()));
@@ -89,15 +94,24 @@ class _HomepageState extends State<Homepage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () { Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => Notifications()),
+                                    );},
             icon: Icon(Icons.notifications, color: Appcolor.backcolor),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () { Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => Likes()),
+                                    );},
             icon: Icon(Icons.favorite, color: Appcolor.backcolor),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () { Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => Shopingbag()),
+                                    );},
             icon: Icon(Icons.shopping_bag, color: Appcolor.backcolor),
           ),
         ],

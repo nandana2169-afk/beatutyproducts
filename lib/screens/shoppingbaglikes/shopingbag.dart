@@ -22,8 +22,8 @@ class _ShopingbagState extends State<Shopingbag> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
-          onPressed: () {},
-          icon: AppIcon.arrowandro,
+          onPressed: () { Navigator.pop(context);},
+          icon: AppIcon.iconsapp,
         ),
       ),
 

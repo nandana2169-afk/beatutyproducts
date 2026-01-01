@@ -1,17 +1,20 @@
 import 'package:beautyproducts/Colors/colors.dart';
+import 'package:beautyproducts/agriment.dart';
 import 'package:beautyproducts/images/image.dart';
+import 'package:beautyproducts/MainNavigationPage.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/bathandskin.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/bathselect.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/bodyoils.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/bodyscrubs.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/rollons.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/showergel.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/womencare.dart';
 import 'package:beautyproducts/screens/homescreen/haircare.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/dotkey.dart';
+import 'package:beautyproducts/screens/homescreen/hairproducteachone/haircombs.dart';
+import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairmasks.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairoil.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/herbal.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/mini.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/minimalist.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/para.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/rescue.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/sept.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/wowam.dart';
-import 'package:beautyproducts/screens/homescreen/loreal.dart';
+import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairserum.dart';
+import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairstyling.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/haircareselect.dart';
 import 'package:beautyproducts/screens/homescreen/homepage.dart';
 import 'package:beautyproducts/screens/homescreen/notifications.dart';
@@ -32,9 +35,9 @@ class MyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Sept(),
+      home: Homepage(),
     );
   }
 }

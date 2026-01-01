@@ -1,4 +1,5 @@
 import 'package:beautyproducts/Colors/colors.dart';
+import 'package:beautyproducts/Icons/icons.dart';
 import 'package:beautyproducts/screens/homescreen/homepage.dart';
 import 'package:flutter/material.dart';
 
@@ -27,12 +28,7 @@ class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
     return Scaffold( appBar: AppBar(
-        leading: IconButton(
-          onPressed: () { Navigator.pop(
-                        context,
-                        MaterialPageRoute(builder: (context) => Homepage()));},
-          icon: Icon(Icons.arrow_back, color: Appcolor.introtext, size: 30),
-        ),
+        leading: IconButton(onPressed: () { Navigator.pop(context);}, icon: AppIcon.iconsapp),
         title: Text(
           'Notifications',
           style: TextStyle(fontWeight: FontWeight.bold),
