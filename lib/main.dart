@@ -1,7 +1,7 @@
 import 'package:beautyproducts/Colors/colors.dart';
-import 'package:beautyproducts/agriment.dart';
+
 import 'package:beautyproducts/images/image.dart';
-import 'package:beautyproducts/MainNavigationPage.dart';
+
 import 'package:beautyproducts/screens/homescreen/bathskin/bathandskin.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/bathselect.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/bodyoils.dart';
@@ -9,20 +9,27 @@ import 'package:beautyproducts/screens/homescreen/bathskin/bodyscrubs.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/rollons.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/showergel.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/womencare.dart';
-import 'package:beautyproducts/screens/homescreen/haircare.dart';
+import 'package:beautyproducts/screens/homescreen/hairproducteachone/haircare.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/haircombs.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairmasks.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairoil.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairserum.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairstyling.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/haircareselect.dart';
-import 'package:beautyproducts/screens/homescreen/homepage.dart';
-import 'package:beautyproducts/screens/homescreen/notifications.dart';
+import 'package:beautyproducts/screens/homescreen/hairproducteachone/homepage.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/facewash.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/maskpeel.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/moiseturizer.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/serums.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/sunscreen.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/toners.dart';
+import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/skinproductlist.dart';
 import 'package:beautyproducts/screens/loginscreen/registration.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';
 import 'package:beautyproducts/screens/splashscreen/splashscreen.dart';
-import 'package:beautyproducts/signupscreen/signup.dart';
+import 'package:beautyproducts/screens/loginscreen/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -37,7 +44,7 @@ class MyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homepage(),
+      home:Homepage(),
     );
   }
 }

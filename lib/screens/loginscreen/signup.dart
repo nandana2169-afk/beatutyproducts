@@ -1,6 +1,6 @@
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/main.dart';
-import 'package:beautyproducts/screens/homescreen/homepage.dart';
+import 'package:beautyproducts/screens/homescreen/hairproducteachone/homepage.dart';
 import 'package:beautyproducts/screens/loginscreen/registration.dart';
 import 'package:beautyproducts/textformfield/textformfield.dart';
 import 'package:flutter/material.dart';

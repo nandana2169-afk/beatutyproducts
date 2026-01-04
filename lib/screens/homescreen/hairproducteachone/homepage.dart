@@ -1,14 +1,27 @@
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/bathandskin.dart';
-import 'package:beautyproducts/screens/homescreen/bathskin/bathselect.dart';
-import 'package:beautyproducts/screens/homescreen/haircare.dart';
-import 'package:beautyproducts/screens/homescreen/notifications.dart';
+import 'package:beautyproducts/screens/homescreen/hairproducteachone/haircare.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/skinproductlist.dart';
+import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';
 import 'package:beautyproducts/textformfield/textformfield.dart';
 import 'package:flutter/material.dart';
 
+// A simple data model to keep things organized
+class ProductItem {
+  final String image;
+  final String title;
+  final String? subtitle; // Only used for the grid offers
+  final Widget destination;
 
+  ProductItem({
+    required this.image,
+    required this.title,
+    this.subtitle,
+    required this.destination,
+  });
+}
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -18,69 +31,76 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  List<String> listimage = [
-    "assets/haircareproduct.png",
-    "assets/bathandskinproduct.png",
-    "assets/skincareproducts.png",
-    "assets/skincaretool.png",
-    "assets/perfume.png",
-    "assets/makeupproduct.png",
+  // LIST 1: Only for the Top Horizontal Circles
+  List<ProductItem> categoryList = [
+    ProductItem(
+      image: "assets/haircareproduct.png",
+      title: "Hair Care",
+      destination: const Haircare(),
+    ),
+    ProductItem(
+      image: "assets/bathandskinproduct.png",
+      title: "Bath & Skin",
+      destination: const Bathandskin(),
+    ),
+    ProductItem(
+      image: "assets/skincareproducts.png",
+      title: "Skin Care",
+      destination: const Skinproductlist(),
+    ),
+    // ProductItem(image: "assets/skincaretool.png", title: "Skin Tools", destination: const Placeholder()),
+    ProductItem(
+      image: "assets/perfume.png",
+      title: "Perfume",
+      destination: const Placeholder(),
+    ),
+    ProductItem(
+      image: "assets/makeupproduct.png",
+      title: "Makeup",
+      destination: const Placeholder(),
+    ),
   ];
 
-  List<String> listText = [
-    "Hair Care",
-    "Bath & Skin",
-    "Skin Care",
-    "Skin Tools",
-    "Perfume",
-    "Makeup",
+  // LIST 2: Only for the Bottom Grid View
+  List<ProductItem> offerList = [
+    ProductItem(
+      image: 'assets/haircaregrid.jpg',
+      title: "Hair Essentials",
+      subtitle: "Buy 1 Get 1 Free",
+      destination: const Haircare(),
+    ),
+    ProductItem(
+      image: 'assets/bathskingrid.jpg',
+      title: "Bath & Skin Kit",
+      subtitle: "Save 25% Today",
+      destination: const Bathandskin(),
+    ),
+    ProductItem(
+      image: 'assets/skincaregrid.jpg',
+      title: "Glow Skin Set",
+      subtitle: "Flat 30% Discount",
+      destination: const Skinproductlist(),
+    ),
+    ProductItem(
+      image: 'assets/skincaretoolgrid.jpg',
+      title: "Skin Tools Combo",
+      subtitle: "Combo Offer 20% Off",
+      destination: const Placeholder(),
+    ),
+    ProductItem(
+      image: 'assets/pefumegrid.jpg',
+      title: "Perfume Collection",
+      subtitle: "Limited Stock 15% Off",
+      destination: const Placeholder(),
+    ),
+    ProductItem(
+      image: 'assets/makeupgrid.jpg',
+      title: "Makeup Pack",
+      subtitle: "Festive Sale 10% Off",
+      destination: const Placeholder(),
+    ),
   ];
 
-  List<String> listimages = [
-    'assets/haircaregrid.jpg',
-    'assets/bathskingrid.jpg',
-    'assets/skincaregrid.jpg',
-    'assets/skincaretoolgrid.jpg',
-    'assets/pefumegrid.jpg',
-    'assets/makeupgrid.jpg',
-  ];
-
-  List<String> productNames = [
-    "Hair Essentials",
-    "Bath & Skin Kit",
-    "Glow Skin Set",
-    "Skin Tools Combo",
-    "Perfume Collection",
-    "Makeup Pack",
-  ];
-
-  List<String> offerDetails = [
-    "Buy 1 Get 1 Free",
-    "Save 25% Today",
-    "Flat 30% Discount",
-    "Combo Offer 20% Off",
-    "Limited Stock 15% Off",
-    "Festive Sale 10% Off",
-  ];
-
-  
-  void movePage(int index) {
-    if (index == 0) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Haircare()));
-    } else if (index == 1) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Bathandskin()));
-    } else if (index == 2) {
-  //     Navigator.push(context, MaterialPageRoute(builder: (context) => SkinCare()));
-  //   } else if (index == 3) {
-  //     Navigator.push(context, MaterialPageRoute(builder: (context) => SkinTools()));
-  //   } else if (index == 4) {
-  //     Navigator.push(context, MaterialPageRoute(builder: (context) => Perfume()));
-  //   } else if (index == 5) {
-  //     Navigator.push(context, MaterialPageRoute(builder: (context) => MakeUp()));
-  //   }
-  // }
-    }
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,58 +114,64 @@ class _HomepageState extends State<Homepage> {
         ),
         actions: [
           IconButton(
-            onPressed: () { Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => Notifications()),
-                                    );},
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Notifications()),
+            ),
             icon: Icon(Icons.notifications, color: Appcolor.backcolor),
           ),
           IconButton(
-            onPressed: () { Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => Likes()),
-                                    );},
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Likes()),
+            ),
             icon: Icon(Icons.favorite, color: Appcolor.backcolor),
           ),
           IconButton(
-            onPressed: () { Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => Shopingbag()),
-                                    );},
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Shopingbag()),
+            ),
             icon: Icon(Icons.shopping_bag, color: Appcolor.backcolor),
           ),
         ],
       ),
       backgroundColor: Appcolor.appcolor,
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 20),
-
+              const SizedBox(height: 20),
               Withoutvalidate(
                 hintText: 'Search',
                 icon: Icons.search,
                 filled: true,
                 fillColor: Appcolor.lightwhite,
               ),
+              const SizedBox(height: 25),
 
-              SizedBox(height: 25),
-
-              // 🔴 Horizontal List Navigation
+              // 🔴 TOP LIST VIEW (Horizontal Circles)
               SizedBox(
                 height: 110,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: listimage.length,
+                  itemCount: categoryList.length, // Uses ONLY categoryList
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () {
-                        movePage(index);
-                      },
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => categoryList[index].destination,
+                        ),
+                      ),
+                      // onLongPress: () {
+                      //   // Example: Removing from here will NOT affect the grid below
+                      //   setState(() {
+                      //     categoryList.removeAt(index);
+                      //   });
+                      // },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 15),
                         child: Column(
@@ -159,13 +185,13 @@ class _HomepageState extends State<Homepage> {
                               ),
                               clipBehavior: Clip.antiAlias,
                               child: Image.asset(
-                                listimage[index],
+                                categoryList[index].image,
                                 fit: BoxFit.cover,
                               ),
                             ),
-                            SizedBox(height: 8),
+                            const SizedBox(height: 8),
                             Text(
-                              listText[index],
+                              categoryList[index].title,
                               style: TextStyle(
                                 color: Appcolor.backcolor,
                                 fontSize: 12,
@@ -180,10 +206,10 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
 
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
 
               Container(
-                padding: EdgeInsets.all(15),
+                padding: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
                   color: Appcolor.lightwhite,
                   borderRadius: BorderRadius.circular(12),
@@ -191,32 +217,36 @@ class _HomepageState extends State<Homepage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Special Offers for you',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),
                     ),
+                    const SizedBox(height: 20),
 
-                    SizedBox(height: 20),
-
-                    // 🟩 Grid Navigation
+                    // 🟩 BOTTOM GRID VIEW
                     GridView.builder(
-                      itemCount: listimage.length,
+                      itemCount: offerList.length, // Uses ONLY offerList
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 12,
-                        crossAxisSpacing: 12,
-                        childAspectRatio: 1,
-                      ),
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 12,
+                            crossAxisSpacing: 12,
+                            childAspectRatio: 1,
+                          ),
                       itemBuilder: (context, index) {
                         return GestureDetector(
-                          onTap: () {
-                            movePage(index);
-                          },
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  offerList[index].destination,
+                            ),
+                          ),
                           child: Card(
                             color: Appcolor.textcolor,
                             shape: RoundedRectangleBorder(
@@ -227,13 +257,10 @@ class _HomepageState extends State<Homepage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Expanded(
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: Image.asset(
-                                      listimages[index],
-                                      fit: BoxFit.cover,
-                                      width: double.infinity,
-                                    ),
+                                  child: Image.asset(
+                                    offerList[index].image,
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
                                   ),
                                 ),
                                 Padding(
@@ -242,7 +269,7 @@ class _HomepageState extends State<Homepage> {
                                     top: 4,
                                   ),
                                   child: Text(
-                                    productNames[index],
+                                    offerList[index].title,
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold,
@@ -256,7 +283,7 @@ class _HomepageState extends State<Homepage> {
                                     bottom: 6,
                                   ),
                                   child: Text(
-                                    offerDetails[index],
+                                    offerList[index].subtitle ?? "",
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w500,

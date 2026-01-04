@@ -1,6 +1,6 @@
 import 'package:beautyproducts/Colors/colors.dart';
-import 'package:beautyproducts/screens/homescreen/bathskin/detailpageone.dart';
-import 'package:beautyproducts/screens/homescreen/notifications.dart';
+import 'package:beautyproducts/detailpages/detailpageone.dart';
+import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';
 import 'package:flutter/material.dart';
