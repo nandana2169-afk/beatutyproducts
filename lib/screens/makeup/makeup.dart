@@ -5,23 +5,23 @@ import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';
 import 'package:flutter/material.dart';
 
-class Fragnance extends StatefulWidget {
-  const Fragnance({super.key});
+class Makeup extends StatefulWidget {
+  const Makeup({super.key});
 
   @override
-  State<Fragnance> createState() => _FragnanceState();
+  State<Makeup> createState() => _MakeupState();
 }
 
-class _FragnanceState extends State<Fragnance> {
+class _MakeupState extends State<Makeup> {
    final List<Products> products = [
     Products(
-      name: " Ramsons   ",
+      name: " Maybelline New York  ",
 
       description:
-          "These fragrances capture the essence of a blooming garden through romantic notes like rose, jasmine, and lily. They are timeless and light, ranging from delicate single-flower scents to complex, multi-layered bouquets. This category is widely considered the most popular and versatile choice for daily wear.",
+          "Easy to use mascara provides curled and volumized lashes, Everyday wear, For longer looking lashes.Start at the base of your lashes with the wand and slowly drag the wand upwards in a zig-zag motion. Do not let mascara dry in between coats.",
       features:
-          ' Capturing the essence of blooming flowers like rose and jasmine, these scents offer a romantic and timeless appeal. They range from light, airy bouquets to deep petals, making them a versatile choice for any occasion.',
-      images: ['assets/perfumeone.jpg'],
+          ' Special bristles coat every lash from root to tip, Waterproof formula, Unique anti-clump applicator brush separates each lash while curling them',
+      images: ['assets/makeupproduct.jpg'],
       rating: 4.5,
       boughtCount: "50k+",
 
@@ -30,13 +30,13 @@ class _FragnanceState extends State<Fragnance> {
       offer: "5% OFF",
     ),
     Products(
-      name: "EM5 Vanilla ",
+      name: "The Blushed Nudes ",
 
       description:
-          "Grounded and earthy, woody scents feature rich notes of sandalwood, cedarwood, and vetiver to provide warmth. They evoke the atmosphere of a dry forest or natural timber, offering a sense of stability and sophistication. These fragrances are frequently used as a base to add long-lasting depth to a perfume.",
+          "12-shade eyeshadow palette features dazzling colours and a variety of shades, For on-trend day or night looks.Create versatile and custom captivating eye looks, Flattering colours,Apply a base eyeshadow to the lid. Concentrate darker shadow in the eye crease",
       features:
-          'Grounded by earthy notes of cedar and sandalwood, woody fragrances provide a sense of warmth and natural sophistication. These scents evoke the atmosphere of a forest, offering a long-lasting base that feels both sturdy and elegant.',
-      images: ['assets/perfumetwo.jpg'],
+          'Contents: 1x Maybelline New York The Blushed Nudes Eyeshadow Palette, 12 Highly Blendable Shades, Matte and Sheen Colours , 9g',
+      images: ['assets/makeupone.jpg'],
       rating: 4.0,
       boughtCount: "30k+",
 
@@ -45,12 +45,12 @@ class _FragnanceState extends State<Fragnance> {
       offer: "15% OFF",
     ),
     Products(
-      name: "Conscious Chemist ",
+      name: "INSIGHT Lip & Cheek Tint ",
       description:
           " Defined by zesty and clean characters, fresh fragrances utilize citrus, aquatic, or bright green notes for an uplifting effect. They evoke the feeling of a cool ocean breeze or morning dew, offering a refreshing burst of energy. These light scents are the perfect choice for daytime wear or hot summer climates.",
       features:
           ' Characterized by zesty citrus and aquatic notes, fresh fragrances deliver an immediate burst of clean and uplifting energy. They mimic the sensation of an ocean breeze, making them the ideal choice for daytime wear and warm weather.',
-      images: ['assets/perfumethree.jpg'],
+      images: ['assets/makeupthree.jpg'],
       rating: 4.0,
       boughtCount: "30k+",
 
@@ -59,13 +59,13 @@ class _FragnanceState extends State<Fragnance> {
       offer: "15% OFF",
     ),
     Products(
-      name: " Wild Stone",
+      name: " Zollyss Makeup",
 
       description:
-          " Oriental or amber scents are rich and exotic, blending warm spices, resins, and opulent balsamic notes. They create a sensual and mysterious aura that is typically intense and stays on the skin for a long duration. These fragrances are often reserved for evening wear or cold seasons due to their depth.",
+          " This rotating makeup brush organizer can be rotated 360°, you can easily view and get items from all directions, very convenient, the high-quality roulette at the bottom makes the rotation very smooth, stable, and easy to rotate! Simply spin the makeup brush organizer left or right to store or take out your things, this storage organizer allows you to keep all of your things within reach.",
       features:
-          'Rich and exotic, these scents blend warm spices and sweet resins to create a mysterious and sensual aura. They are typically intense and long-lasting, providing a luxurious depth that is perfectly suited for evening wear.',
-      images: ['assets/perfumefour.jpg'],
+          'The Swivel makeup brush holder is made of durable Premium plastic, which ensures its durability and security from injury and breakage. ',
+      images: ['assets/makeupfour.jpg'],
       rating: 4.0,
       boughtCount: "30k+",
 
@@ -74,13 +74,13 @@ class _FragnanceState extends State<Fragnance> {
       offer: "15% OFF",
     ),
     Products(
-      name: "RENEE Eau De ",
+      name: "Hyphen  ",
 
       description:
-          "These fragrances feature edible, sweet qualities, often smelling like delicious vanilla, chocolate, honey, or warm caramel. They evoke a sense of nostalgic comfort and indulgence, mimicking the sugary aromas found in a luxury bakery. These modern scents are playful and bold, leaving a distinct and lingering trail.",
+          "Reduces pigmentation & Repairs Dry Lips: The moisturizing blend of 1% Vitamin E & Peptide helps brighten and make your lips juicy, soft and smooth without any dryness.",
       features:
-          'Designed to smell edible and sweet, gourmand fragrances feature delicious notes of vanilla, chocolate, and caramel. They evoke a sense of nostalgic indulgence and playful warmth, leaving a bold and sugary trail behind the wearer.',
-      images: ['assets/perfumefive.jpg'],
+          "24 HRS MOISTURIZING LIP BALM: It nourishes the delicate lip skin deeply to keep it moisturized for up to 24 Hrs.",
+      images: ['assets/makeupfive.jpg'],
       rating: 4.0,
       boughtCount: "30k+",
 
@@ -89,13 +89,13 @@ class _FragnanceState extends State<Fragnance> {
       offer: "15% OFF",
     ),
     Products(
-      name: "Engage W2  ",
+      name: "Long-Lasting Matte",
 
       description:
-          "Aromatic profiles utilize herbal notes like lavender, rosemary, and sage to create a crisp and sophisticated finish. They provide a rustic, outdoorsy vibe that feels both natural and revitalizing for the wearer at any time. These scents are celebrated for their clean, 'green' energy and classic, refined appeal.",
+          "Pack of 8 liquid matte lipsticks featuring trendy nude and bold shades including peach, cabernet, strawberry rose petal, rhubarb, vixen, and rosehip colours.Weightless liquid matte formula provides extended wear with a comfortable satin finish that doesn't feel heavy on lips",
       features:
-          ' Combining rustic herbs like lavender and sage, aromatic profiles offer a clean, sophisticated, and outdoorsy character. These scents provide a revitalizing "green" energy that feels refined, balancing herbal freshness with a smooth finish.',
-      images: ['assets/perfumesix.jpg'],
+          'Carefully curated colour selection suitable for all skin tones, perfect for both everyday wear and special occasions',
+      images: ['assets/makeupsix.jpg'],
       rating: 4.0,
       boughtCount: "30k+",
 
@@ -110,14 +110,14 @@ class _FragnanceState extends State<Fragnance> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Fragrance ',
+          'Makeup ',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(
             Icons.arrow_back,
-          ), // Changed from AppIcon.iconsapp for stability
+          ), 
         ),
         backgroundColor: Appcolor.textcolor,
         actions: [
@@ -157,7 +157,7 @@ class _FragnanceState extends State<Fragnance> {
                 ),
                 clipBehavior: Clip.antiAlias,
                 child: Image.asset(
-                  'assets/perfumebanner.jpg',
+                  'assets/makeupbanner.jpg',
                   fit: BoxFit.cover,
                   width: double.infinity,
                   height: 300,

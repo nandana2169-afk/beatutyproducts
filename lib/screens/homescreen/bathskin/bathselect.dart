@@ -82,7 +82,7 @@ class _BathselectState extends State<Bathselect> {
       name: "PONDs Moisturizing",
 
       description:
-          "POND’S Moisturizing Body Lotion is a lightweight body lotion that provides 3X moisturization to your skin, leaving it feeling silky soft, smooth, and radiant. It is enriched with Niacinamide that helps to brighten and even out your skin tone.",
+          "POND'S Moisturizing Body Lotion is a lightweight body lotion that provides 3X moisturization to your skin, leaving it feeling silky soft, smooth, and radiant. It is enriched with Niacinamide that helps to brighten and even out your skin tone.",
       features:
           'Provides 3X moisturization,Enriched with Niacinamide for skin brightening,Lightweight and non-sticky formula,Quick-absorbing,Suitable for all skin types',
       images: ['assets/pondsloh.jpg'],
