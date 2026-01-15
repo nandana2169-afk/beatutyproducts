@@ -130,7 +130,7 @@ class _HairstylingState extends State<Hairstyling> {
     return Scaffold(
         appBar: AppBar(
         title: const Text(
-          'Hair Growth',
+          'HairSetting',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(onPressed: (){  Navigator.pop(context);}, icon: AppIcon.iconsapp),

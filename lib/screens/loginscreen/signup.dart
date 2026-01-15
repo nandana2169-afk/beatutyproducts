@@ -1,6 +1,6 @@
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/main.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/homepage.dart';
+import 'package:beautyproducts/screens/bottomnavigation/bottomnavigation.dart';
 import 'package:beautyproducts/screens/loginscreen/registration.dart';
 import 'package:beautyproducts/textformfield/textformfield.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +63,7 @@ class _SignupState extends State<Signup> {
                   ],
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 80),
 
                 Container(
                   width: 350,
@@ -190,7 +190,7 @@ class _SignupState extends State<Signup> {
                                     Future.delayed(const Duration(seconds: 2), () {
                                       Navigator.pushReplacement(
                                         context,
-                                        MaterialPageRoute(builder: (context) => const Homepage()),
+                                        MaterialPageRoute(builder: (context) => const Bottomnavigation()),
                                       );
                                     });
                                   }

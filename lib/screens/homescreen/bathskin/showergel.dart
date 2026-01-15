@@ -1,5 +1,4 @@
 import 'package:beautyproducts/Colors/colors.dart';
-import 'package:beautyproducts/screens/homescreen/bathskin/bathselect.dart';
 import 'package:beautyproducts/detailpages/detailpageone.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
@@ -111,7 +110,7 @@ class _ShowergelState extends State<Showergel> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Body Lotions',
+          'ShowerGel',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(

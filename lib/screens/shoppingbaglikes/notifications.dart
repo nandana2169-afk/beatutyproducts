@@ -1,6 +1,5 @@
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/Icons/icons.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/homepage.dart';
 import 'package:flutter/material.dart';
 
 class Notifications extends StatefulWidget {

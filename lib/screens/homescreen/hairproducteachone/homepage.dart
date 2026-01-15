@@ -1,7 +1,6 @@
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/screens/fragnanace/fragnance.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/bathandskin.dart';
-import 'package:beautyproducts/screens/homescreen/bathskin/bathselect.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/sellercombo.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/haircare.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/haircareselect.dart';
@@ -53,8 +52,8 @@ class _HomepageState extends State<Homepage> {
   List<ProductItem> offerList = [
     ProductItem(image: 'assets/haircaregrid.jpg', title: "Hair Essentials", subtitle: "Buy 1 Get 1 Free", destination: const Haircareselect()),
     ProductItem(image: 'assets/bathskingrid.jpg', title: "Bath & Skin Kit", subtitle: "Save 25% Today", destination: const Sellercombo()),
-    ProductItem(image: 'assets/skincaregrid.jpg', title: "Glow Skin Set", subtitle: "Flat 30% Discount", destination: const Sunscreen()),
-    ProductItem(image: 'assets/labeauty.jpg', title: "Skin Tools Combo", subtitle: "Combo Offer 20% Off", destination: const Hairoil()),
+    ProductItem(image: 'assets/skincaregrid.jpg', title: "Sunscreens", subtitle: "Flat 30% Discount", destination: const Sunscreen()),
+    ProductItem(image: 'assets/labeauty.jpg', title: "Hair Oils", subtitle: "Combo Offer 20% Off", destination: const Hairoil()),
     ProductItem(image: 'assets/pefumegrid.jpg', title: "Perfume Collection", subtitle: "Limited Stock 15% Off", destination: const Fragnance()),
     ProductItem(image: 'assets/makeupgrid.jpg', title: "Makeup Pack", subtitle: "Festive Sale 10% Off", destination: const Makeup()),
   ];
@@ -65,7 +64,7 @@ class _HomepageState extends State<Homepage> {
       appBar: AppBar(
         title: Text('BloPink', style: TextStyle(fontWeight: FontWeight.bold, color: Appcolor.backcolor)),
         actions: [
-          IconButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const Notifications())), icon: Icon(Icons.notifications, color: Appcolor.backcolor)),
+          // IconButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const Notifications())), icon: Icon(Icons.notifications, color: Appcolor.backcolor)),
           IconButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const Likes())), icon: Icon(Icons.favorite, color: Appcolor.backcolor)),
           IconButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const Shopingbag())), icon: Icon(Icons.shopping_bag, color: Appcolor.backcolor)),
         ],

@@ -1,5 +1,4 @@
 import 'package:beautyproducts/Colors/colors.dart';
-import 'package:beautyproducts/Icons/icons.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/bathselect.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/bodyoils.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/bodyscrubs.dart';

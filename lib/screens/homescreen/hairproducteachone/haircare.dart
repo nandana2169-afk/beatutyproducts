@@ -5,7 +5,6 @@ import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairmasks.d
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairoil.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairserum.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairstyling.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/homepage.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';

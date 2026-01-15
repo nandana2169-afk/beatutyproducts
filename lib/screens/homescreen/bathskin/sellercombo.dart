@@ -109,7 +109,7 @@ class _SellercomboState extends State<Sellercombo> {
     return Scaffold(
          appBar: AppBar(
         title: const Text(
-          'Women Care',
+          'ComboPack',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(

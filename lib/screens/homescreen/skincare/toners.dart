@@ -110,7 +110,7 @@ class _TonersState extends State<Toners> {
     return Scaffold(
         appBar: AppBar(
         title: const Text(
-          'Serums ',
+          'Toners ',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(

@@ -1,15 +1,11 @@
 import 'package:beautyproducts/detailpages/detailpageone.dart';
 import 'package:flutter/material.dart';
-// Assuming these imports exist in your project
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';
 
-// --- 1. PRODUCT MODEL ---
-// Created this class so the data structure is recognized
 
-// --- 2. MAIN LIST PAGE ---
 class Bathselect extends StatefulWidget {
   const Bathselect({super.key});
 

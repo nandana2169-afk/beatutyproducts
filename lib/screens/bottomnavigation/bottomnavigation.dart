@@ -1,8 +1,11 @@
 import 'package:beautyproducts/Colors/colors.dart';
+import 'package:beautyproducts/Icons/icons.dart';
+import 'package:beautyproducts/screens/discover/discover.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/bathandskin.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/bodyscrubs.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairoil.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/homepage.dart';
+import 'package:beautyproducts/screens/profile/profile.dart';
+import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
 import 'package:flutter/material.dart';
 
 class Bottomnavigation extends StatefulWidget {
@@ -16,9 +19,9 @@ class _BottomnavigationState extends State<Bottomnavigation> {
   int selectedindex = 0;
      final List<Widget> pages = [
     Homepage(),
-    Hairoil(),
-    Bathandskin(),
-    Bodyscrubs(),
+   Discover(),
+    Profile(),
+    Notifications(),
   ];
   
   void itemtap(int index) {
@@ -42,8 +45,8 @@ class _BottomnavigationState extends State<Bottomnavigation> {
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person_2_outlined), label: 'Profile'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: AppIcon.notifications,
+            label: 'Notifications',
           ),
         ],
         selectedItemColor: Appcolor.purples,

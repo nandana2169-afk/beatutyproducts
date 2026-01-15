@@ -14,7 +14,7 @@ class Haircareselect extends StatefulWidget {
 }
 
 class _HaircareselectState extends State<Haircareselect> {
-  // This is your master list of products
+ 
   final List<Product> products = [
     Product(
       name: "L'Oreal Moisture",
@@ -124,7 +124,7 @@ class _HaircareselectState extends State<Haircareselect> {
       discountPrice: 849,
       offer: "15% OFF",
     ),
-    // ... You can add Dotkey, Mini, Minimalist, and Herbal here following the same pattern
+
   ];
 
   @override

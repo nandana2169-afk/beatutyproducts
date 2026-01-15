@@ -109,7 +109,7 @@ class _SerumsState extends State<Serums> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Serums ',
+          'Face Serums ',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         leading: IconButton(

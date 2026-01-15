@@ -1,6 +1,6 @@
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/main.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/homepage.dart';
+import 'package:beautyproducts/screens/bottomnavigation/bottomnavigation.dart';
 
 import 'package:beautyproducts/screens/loginscreen/signup.dart';
 import 'package:beautyproducts/textformfield/textformfield.dart';
@@ -62,7 +62,7 @@ class _RegistrationState extends State<Registration> {
                   ],
                 ),
 
-                SizedBox(height: 150),
+                SizedBox(height: 100),
 
                 Container(
                   width: 350,
@@ -172,7 +172,7 @@ class _RegistrationState extends State<Registration> {
                                   if (_formkey.currentState!.validate()) {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => Homepage()),
+                                      MaterialPageRoute(builder: (context) => Bottomnavigation()),
                                     );
                                   }
                                 },
