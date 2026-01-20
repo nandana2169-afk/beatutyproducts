@@ -188,6 +188,7 @@ class _SignupState extends State<Signup> {
                                     );
 
                                     Future.delayed(const Duration(seconds: 2), () {
+                                      if (!mounted) return;
                                       Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(builder: (context) => const Bottomnavigation()),

@@ -1,13 +1,10 @@
 import 'package:beautyproducts/Colors/colors.dart';
 
 import 'package:beautyproducts/images/image.dart';
-import 'package:beautyproducts/screens/bottomnavigation/bottomnavigation.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/homepage.dart';
 
-import 'package:beautyproducts/screens/profile/profile.dart';
 import 'package:beautyproducts/screens/loginscreen/registration.dart';
 import 'package:beautyproducts/screens/loginscreen/signup.dart';
-import 'package:beautyproducts/screens/splashscreen/splashscreen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,7 +19,7 @@ class MyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:Splashscreen(),
+      home:Registration(),
     );
   }
 }
@@ -56,14 +53,14 @@ class _BeautyproductState extends State<Beautyproduct> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // 🔥 CROPPED IMAGE (only change made)
+              
                 SizedBox(
                   height: 200,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20), // crop shape
+                    borderRadius: BorderRadius.circular(20), 
                     child: Image.asset(
                       AppImages.splashimage,
-                      fit: BoxFit.cover, // actual cropping
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),

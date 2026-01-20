@@ -1,9 +1,11 @@
+import 'package:beautyproducts/Colors/colors.dart';
 import 'package:flutter/material.dart';
 
 class Customtextformfield extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final IconData icon;
+   
   final String? Function(String?)? validator;
   const Customtextformfield({
     super.key,
@@ -11,6 +13,8 @@ class Customtextformfield extends StatelessWidget {
     required this.controller,
     required this.icon,
     this.validator,
+
+     final dynamic fillColor,
   });
 
   @override
@@ -19,8 +23,8 @@ class Customtextformfield extends StatelessWidget {
       controller: controller,
       validator: validator,
       decoration: InputDecoration(
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-        hintText: hintText,
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20),borderSide:BorderSide.none),
+        hintText: hintText,fillColor: Appcolor.textcolor,filled: true,
         prefixIcon: Icon(icon),
       ),
     );
@@ -30,12 +34,14 @@ class Customtextformfield extends StatelessWidget {
 class Withouticon extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
+  
   // final IconData icon;
   final String? Function(String?)? validator;
   const Withouticon({
     super.key,
     required this.hintText,
     required this.controller,
+     final dynamic fillColor,
     // required this.icon,
     this.validator,
   });
@@ -46,7 +52,8 @@ class Withouticon extends StatelessWidget {
       validator: validator,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-        hintText: hintText,
+        hintText: hintText,filled: true,
+         fillColor: Appcolor.textcolor
         // prefixIcon: Icon(icon),
       ),
     );

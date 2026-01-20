@@ -23,12 +23,12 @@ class _LikesState extends State<Likes> {
         ),
       ),
 
-      // 💗 EMPTY WISHLIST UI
+      
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // 💛 Empty Heart Icon
+          
             Icon(Icons.favorite_border, size: 100, color: Appcolor.textcolor),
 
             const SizedBox(height: 20),
@@ -47,7 +47,7 @@ class _LikesState extends State<Likes> {
 
             const SizedBox(height: 30),
 
-            // 🔍 Continue Browsing Button
+          
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(

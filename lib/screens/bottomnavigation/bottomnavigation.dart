@@ -1,8 +1,6 @@
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/Icons/icons.dart';
 import 'package:beautyproducts/screens/discover/discover.dart';
-import 'package:beautyproducts/screens/homescreen/bathskin/bathandskin.dart';
-import 'package:beautyproducts/screens/homescreen/bathskin/bodyscrubs.dart';
 import 'package:beautyproducts/screens/homescreen/hairproducteachone/homepage.dart';
 import 'package:beautyproducts/screens/profile/profile.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';

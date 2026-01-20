@@ -8,7 +8,6 @@ import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairoil.dar
 import 'package:beautyproducts/screens/homescreen/skincare/skinproductlist.dart';
 import 'package:beautyproducts/screens/homescreen/skincare/sunscreen.dart';
 import 'package:beautyproducts/screens/makeup/makeup.dart';
-import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';
 import 'package:beautyproducts/textformfield/textformfield.dart';
