@@ -4,6 +4,7 @@ import 'package:beautyproducts/images/image.dart';
 
 import 'package:beautyproducts/screens/loginscreen/registration.dart';
 import 'package:beautyproducts/screens/loginscreen/signup.dart';
+import 'package:beautyproducts/screens/splashscreen/splashscreen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class MyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:Registration(),
+      home:Splashscreen(),
     );
   }
 }
@@ -45,7 +46,7 @@ class _BeautyproductState extends State<Beautyproduct> {
               style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
-                color: Appcolor.introtext,
+                color: Appcolor.backcolor,
               ),
             ),
 
@@ -84,18 +85,18 @@ class _BeautyproductState extends State<Beautyproduct> {
                         'Sign Up',
                         style: TextStyle(
                           fontSize: 20,
-                          color: Appcolor.textcolor,
+                          color: Appcolor.backcolor,
                         ),
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(10),
                   child: Row(
                     children: [
                       Expanded(child: Divider(color: Appcolor.appcolor)),
-                      SizedBox(width: 5),
+                      SizedBox(width: 4),
                       Text(
                         'OR',
                         style: TextStyle(
@@ -104,7 +105,7 @@ class _BeautyproductState extends State<Beautyproduct> {
                           fontSize: 18,
                         ),
                       ),
-                      SizedBox(width: 5),
+                      SizedBox(width: 4),
                       Expanded(child: Divider(color: Appcolor.appcolor)),
                     ],
                   ),
@@ -130,7 +131,7 @@ class _BeautyproductState extends State<Beautyproduct> {
                         'Log In',
                         style: TextStyle(
                           fontSize: 20,
-                          color: Appcolor.textcolor,
+                          color: Appcolor.backcolor,
                         ),
                       ),
                     ),

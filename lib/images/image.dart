@@ -225,4 +225,6 @@ class AppImages {
       static final makeuofour = 'assets/makeupfive.jpg';
       static final makeupfive = 'assets/makeupsix.jpg';
       static final makeupbanner = 'assets/makeupbanner.jpg';
+       static final lock = 'assets/lock.jpg';
+         static final lockopen = 'assets/lockopen.jpg';
 }

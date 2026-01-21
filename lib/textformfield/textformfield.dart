@@ -23,8 +23,8 @@ class Customtextformfield extends StatelessWidget {
       controller: controller,
       validator: validator,
       decoration: InputDecoration(
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20),borderSide:BorderSide.none),
-        hintText: hintText,fillColor: Appcolor.textcolor,filled: true,
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20),),
+        hintText: hintText,
         prefixIcon: Icon(icon),
       ),
     );

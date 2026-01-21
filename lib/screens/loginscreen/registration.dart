@@ -1,8 +1,9 @@
+import 'package:beautyproducts/screens/lockscreens/lockscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/screens/bottomnavigation/bottomnavigation.dart';
 import 'package:beautyproducts/screens/loginscreen/signup.dart';
-import 'package:beautyproducts/textformfield/textformfield.dart';
+
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -21,7 +22,7 @@ class _RegistrationState extends State<Registration> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Appcolor.appcolor,
+      backgroundColor: Appcolor.textcolor,
       body: SingleChildScrollView(
         child: Center(
           child: Form(
@@ -30,9 +31,9 @@ class _RegistrationState extends State<Registration> {
               children: [
 
                 /// 🔹 Space from top
-                const SizedBox(height: 50),
+                const SizedBox(height: 150),
 
-                /// 🔹 Centered Login Title
+                /// 🔹 Login Title
                 Center(
                   child: Text(
                     'Log In',
@@ -44,7 +45,7 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
 
-                const SizedBox(height: 150),
+                const SizedBox(height: 50),
 
                 Padding(
                   padding: const EdgeInsets.all(10),
@@ -55,39 +56,45 @@ class _RegistrationState extends State<Registration> {
                       /// ✔ Email / Phone
                       Padding(
                         padding: const EdgeInsets.all(10),
-                        child: Customtextformfield(
-                          hintText: 'Email id or Phone number',
-                          fillColor: Appcolor.textcolor,
-                          icon: Icons.email,
-                          controller: phonecontroller,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter phone number or email';
-                            }
+                        child: TextFormField(
+                  controller: phonecontroller,
 
-                            bool isPhone = RegExp(
-                              r'^(?:\+91|0)?[6-9]\d{9}$',
-                            ).hasMatch(value);
+                  decoration: InputDecoration(
+                    hintText: "Email/Phonenumber",
+                    prefixIcon: Icon(Icons.email, color: Appcolor.backcolor),
 
-                            bool isEmail = RegExp(
-                              r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-                            ).hasMatch(value);
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Appcolor.appcolor)
+                    // ),focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: Appcolor.appcolor,))
+                  ),),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter phone number or email';
+                    }
 
-                            if (!isPhone && !isEmail) {
-                              return 'Enter valid phone number OR email';
-                            }
-                            return null;
-                          },
-                        ),
+                    bool isPhone = RegExp(
+                      r'^(?:\+91|0)?[6-9]\d{9}$',
+                    ).hasMatch(value);
+
+                    bool isEmail = RegExp(
+                      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+                    ).hasMatch(value);
+
+                    if (!isPhone && !isEmail) {
+                      return 'Enter valid phone number OR email';
+                    }
+                    return null;
+                  },
+                ),
                       ),
 
                       /// ✔ Password
                       Padding(
                         padding: const EdgeInsets.all(10),
-                        child: Customtextformfield(
-                          hintText: 'Password',
-                          fillColor: Appcolor.textcolor,
-                          icon: Icons.password,
+                        child: TextFormField(
+                       decoration: InputDecoration(hintText: "Password",prefixIcon: Icon(Icons.password_outlined,color: Appcolor.backcolor,),
+                       enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10,),borderSide: BorderSide(color: Appcolor.appcolor))
+                       ),
                           controller: passwordcontroller,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -123,11 +130,15 @@ class _RegistrationState extends State<Registration> {
                                 ),
                               ],
                             ),
+
+                            /// 🔥 FORGOT PASSWORD NAVIGATION
                             GestureDetector(
                               onTap: () {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text("Forgot Password Clicked"),
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const Lockscreen(),
                                   ),
                                 );
                               },
@@ -160,12 +171,12 @@ class _RegistrationState extends State<Registration> {
                               }
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Appcolor.purples,
+                              backgroundColor: Appcolor.appcolor,
                             ),
                             child: Text(
                               'Log In',
                               style: TextStyle(
-                                color: Appcolor.textcolor,
+                                color: Appcolor.backcolor,
                                 fontSize: 20,
                               ),
                             ),
@@ -197,7 +208,7 @@ class _RegistrationState extends State<Registration> {
                             child: Text(
                               "SIGN UP",
                               style: TextStyle(
-                                color: Appcolor.backcolor,
+                                color: Appcolor.purples,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15,
                               ),
