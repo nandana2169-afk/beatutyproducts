@@ -11,6 +11,11 @@ class Newpassword extends StatefulWidget {
 }
 
 class _NewpasswordState extends State<Newpassword> {
+   final TextEditingController passwordcontroller = TextEditingController();
+  final TextEditingController confirmpasswordcontroller = TextEditingController();
+    final _formkey = GlobalKey<FormState>();
+   bool showPassword = true;
+  bool showConfirmPassword = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,59 +29,106 @@ class _NewpasswordState extends State<Newpassword> {
       ),
       backgroundColor: Appcolor.textcolor,
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Image.asset('assets/lock.jpg'),
-            Text(
-              'Your New Password Must Be Different from Previously Used Passsword',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Appcolor.appcolor),
-                  ),labelText: "Enter a New Password"
-                ),
+        child: Form(
+           key: _formkey,
+          child: Column(
+            children: [
+              Image.asset('assets/lock.jpg'),
+              Text(
+                'Your New Password Must Be Different from Previously Used Passsword',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
-            ),
-             Padding(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Appcolor.appcolor),
-                  ),labelText: "Confirm Password"
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child:  TextFormField(
+                        controller: passwordcontroller,
+                        obscureText: showPassword,
+                        decoration: InputDecoration(
+                          hintText: "New Password",
+                          prefixIcon: Icon(Icons.lock,color: Appcolor.backcolor,),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              showPassword
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,color: Appcolor.backcolor,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                showPassword = !showPassword;
+                              });
+                            },
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Appcolor.appcolor)
+                          ),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter password';
+                          }
+                          return null;
+                        },
+                      ),
+              ),
+               Padding(
+                padding: const EdgeInsets.all(10),
+                child:   TextFormField(
+                        controller: passwordcontroller,
+                        obscureText: showPassword,
+                        decoration: InputDecoration(
+                          hintText: "Confirm Password",
+                          prefixIcon: Icon(Icons.lock,color: Appcolor.backcolor,),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              showPassword
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,color: Appcolor.backcolor,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                showPassword = !showPassword;
+                              });
+                            },
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Appcolor.appcolor)
+                          ),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter password';
+                          }
+                          return null;
+                        },
+                      ),
                 ),
-              ),),// reset_password.dart
-ElevatedButton(
-  onPressed: () async {
-    await Future.delayed(const Duration(seconds: 2));
-    if (!context.mounted) return;
-
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(
-        builder: (_) => const Registration(), // your existing login screen
-      ),
-      (route) => false,
-    );
-  },
-  style: ElevatedButton.styleFrom(
-    backgroundColor: Appcolor.appcolor,
-  ),
-  child: Text(
-    "Reset Password",
-    style: TextStyle(color: Appcolor.backcolor),
-  ),
-),
-
-
-          ],
+                // reset_password.dart
+          ElevatedButton(
+            onPressed: () async {
+              await Future.delayed(const Duration(seconds: 2));
+              if (!context.mounted) return;
+          
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+          builder: (_) => const Registration(), // your existing login screen
+                ),
+                (route) => false,
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Appcolor.appcolor,
+            ),
+            child: Text(
+              "Reset Password",
+              style: TextStyle(color: Appcolor.backcolor),
+            ),
+          ),
+          
+          
+            ],
+          ),
         ),
       ),
     );

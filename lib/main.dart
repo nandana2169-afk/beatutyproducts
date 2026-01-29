@@ -1,9 +1,22 @@
 import 'package:beautyproducts/Colors/colors.dart';
 
 import 'package:beautyproducts/images/image.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/rollons.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/sellercombo.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/showergel.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/womencare.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/facewash.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/maskpeel.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/moiseturizer.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/nightcream.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/serums.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/sunscreen.dart';
+import 'package:beautyproducts/screens/homescreen/skincare/toners.dart';
 
 import 'package:beautyproducts/screens/loginscreen/registration.dart';
 import 'package:beautyproducts/screens/loginscreen/signup.dart';
+
+import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';
 import 'package:beautyproducts/screens/splashscreen/splashscreen.dart';
 
 import 'package:flutter/material.dart';
@@ -18,10 +31,7 @@ class MyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home:Splashscreen(),
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Splashscreen());
   }
 }
 
@@ -54,11 +64,10 @@ class _BeautyproductState extends State<Beautyproduct> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              
                 SizedBox(
                   height: 200,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20), 
+                    borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
                       AppImages.splashimage,
                       fit: BoxFit.cover,

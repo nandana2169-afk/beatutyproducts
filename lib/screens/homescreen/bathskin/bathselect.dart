@@ -1,4 +1,6 @@
 import 'package:beautyproducts/detailpages/detailpageone.dart';
+
+import 'package:beautyproducts/screens/paymentcartscreen/cartstorage.dart';
 import 'package:flutter/material.dart';
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
@@ -409,7 +411,17 @@ class ProductDetailPage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12),
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: ()async {
+    await CartStorage.addToCart(product);
+if(!context.mounted)return;
+    // 👇 Navigate to cart screen after adding
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const Shopingbag(),
+      ),
+    );
+  },
                             child: Text(
                               "ADD TO BAG",
                               style: TextStyle(
