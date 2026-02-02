@@ -7,7 +7,6 @@ import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';
 
-
 class Bathselect extends StatefulWidget {
   const Bathselect({super.key});
 
@@ -411,17 +410,17 @@ class ProductDetailPage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12),
                               ),
                             ),
-                            onPressed: ()async {
-    await CartStorage.addToCart(product);
-if(!context.mounted)return;
-    // 👇 Navigate to cart screen after adding
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const Shopingbag(),
-      ),
-    );
-  },
+                            onPressed: () async {
+                              await CartStorage.addToCart(product);
+                              if (!context.mounted) return;
+                              // 👇 Navigate to cart screen after adding
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Shopingbag(),
+                                ),
+                              );
+                            },
                             child: Text(
                               "ADD TO BAG",
                               style: TextStyle(

@@ -155,7 +155,10 @@ class ProductDetailPage extends StatelessWidget {
                       // Favorite Icon Button
                       Container(
                         decoration: BoxDecoration(
-                          border: Border.all(color: Appcolor.appcolor, width: 2),
+                          border: Border.all(
+                            color: Appcolor.appcolor,
+                            width: 2,
+                          ),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: IconButton(
@@ -168,7 +171,7 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      
+
                       const SizedBox(width: 12),
 
                       // Add to Bag Button

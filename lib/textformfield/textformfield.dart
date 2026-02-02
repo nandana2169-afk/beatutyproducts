@@ -5,7 +5,7 @@ class Customtextformfield extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final IconData icon;
-   
+
   final String? Function(String?)? validator;
   const Customtextformfield({
     super.key,
@@ -14,7 +14,7 @@ class Customtextformfield extends StatelessWidget {
     required this.icon,
     this.validator,
 
-     final dynamic fillColor,
+    final dynamic fillColor,
   });
 
   @override
@@ -23,42 +23,44 @@ class Customtextformfield extends StatelessWidget {
       controller: controller,
       validator: validator,
       decoration: InputDecoration(
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20),),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
         hintText: hintText,
         prefixIcon: Icon(icon),
       ),
     );
-    
   }
 }
+
 class Withouticon extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
-  
+
   // final IconData icon;
   final String? Function(String?)? validator;
   const Withouticon({
     super.key,
     required this.hintText,
     required this.controller,
-     final dynamic fillColor,
+    final dynamic fillColor,
     // required this.icon,
     this.validator,
   });
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        controller: controller,
+      controller: controller,
       validator: validator,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-        hintText: hintText,filled: true,
-         fillColor: Appcolor.textcolor
+        hintText: hintText,
+        filled: true,
+        fillColor: Appcolor.textcolor,
         // prefixIcon: Icon(icon),
       ),
     );
   }
 }
+
 class Withoutvalidate extends StatelessWidget {
   final String hintText;
   // final TextEditingController controller;
@@ -72,20 +74,23 @@ class Withoutvalidate extends StatelessWidget {
     // required this.controller,
     required this.icon,
     required this.filled,
-    required this.fillColor
+    required this.fillColor,
     // this.validator,
   });
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        // controller: controller,
+      // controller: controller,
       // validator: validator,
       decoration: InputDecoration(
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20),borderSide: BorderSide.none),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide.none,
+        ),
         hintText: hintText,
         prefixIcon: Icon(icon),
         filled: true,
-        fillColor: Colors.white
+        fillColor: Colors.white,
       ),
     );
   }

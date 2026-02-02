@@ -15,7 +15,7 @@ class Bodyscrubs extends StatefulWidget {
 }
 
 class _BodyscrubsState extends State<Bodyscrubs> {
-     final List<Products> products = [
+  final List<Products> products = [
     Products(
       name: " mCaffeine Exfoliating ",
 
@@ -27,7 +27,7 @@ class _BodyscrubsState extends State<Bodyscrubs> {
       rating: 4.5,
       boughtCount: "50k+",
 
-      price:  399,
+      price: 399,
       discountPrice: 379,
       offer: "5% OFF",
     ),
@@ -36,8 +36,7 @@ class _BodyscrubsState extends State<Bodyscrubs> {
 
       description:
           "Dove Exfoliating Body Polish clears dry and dull skin leaving it vibrant and smooth Made with pomegranate seeds and shea butter, this body scrub deeply exfoliates and nourishes the skin, both of which are essential to a good skincare routine",
-      features:
-          'Exfoliating, Moisturizing, Nourishing',
+      features: 'Exfoliating, Moisturizing, Nourishing',
       images: ['assets/dovesceub.jpg'],
       rating: 4.0,
       boughtCount: "30k+",
@@ -109,7 +108,7 @@ class _BodyscrubsState extends State<Bodyscrubs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
+      appBar: AppBar(
         title: const Text(
           'Body Scurbs',
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -408,17 +407,17 @@ class ProductDetailPage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12),
                               ),
                             ),
-                            onPressed: ()async {
-    await CartStorage.addToCart(product);
-if(!context.mounted)return;
-    // 👇 Navigate to cart screen after adding
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const Shopingbag(),
-      ),
-    );
-  },
+                            onPressed: () async {
+                              await CartStorage.addToCart(product);
+                              if (!context.mounted) return;
+                              // 👇 Navigate to cart screen after adding
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Shopingbag(),
+                                ),
+                              );
+                            },
                             child: Text(
                               "ADD TO BAG",
                               style: TextStyle(
@@ -439,6 +438,5 @@ if(!context.mounted)return;
         ),
       ),
     );
-    
   }
 }

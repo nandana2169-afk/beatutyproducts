@@ -391,16 +391,16 @@ class ProductDetailPage extends StatelessWidget {
                         ),
                         child: IconButton(
                           onPressed: () async {
-    await CartStorage.addToCart(product);
-if(!context.mounted)return;
-    // 👇 Navigate to cart screen after adding
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const Shopingbag(),
-      ),
-    );
-  },
+                            await CartStorage.addToCart(product);
+                            if (!context.mounted) return;
+                            // 👇 Navigate to cart screen after adding
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Shopingbag(),
+                              ),
+                            );
+                          },
                           icon: Icon(
                             Icons.favorite_border,
                             color: Appcolor.appcolor,

@@ -10,11 +10,12 @@ class Otpscreen extends StatefulWidget {
 }
 
 class _OtpscreenState extends State<Otpscreen> {
-  final List<TextEditingController> _controllers =
-      List.generate(4, (_) => TextEditingController());
+  final List<TextEditingController> _controllers = List.generate(
+    4,
+    (_) => TextEditingController(),
+  );
 
-  final List<FocusNode> _focusNodes =
-      List.generate(4, (_) => FocusNode());
+  final List<FocusNode> _focusNodes = List.generate(4, (_) => FocusNode());
 
   @override
   void dispose() {
@@ -42,10 +43,7 @@ class _OtpscreenState extends State<Otpscreen> {
           // ✅ NORMAL BORDER
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(
-              color: Appcolor.appcolor,
-              width: 2,
-            ),
+            borderSide: BorderSide(color: Appcolor.appcolor, width: 2),
           ),
 
           // ✅ FOCUSED BORDER
@@ -75,18 +73,25 @@ class _OtpscreenState extends State<Otpscreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(backgroundColor: Appcolor.textcolor,leading: IconButton(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Appcolor.textcolor,
+        leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(
             Icons.arrow_back,
           ), // Changed from AppIcon.iconsapp for stability
-        ),title: Text('Verify Your Email or Password',style: TextStyle(fontWeight: FontWeight.bold),),),
+        ),
+        title: Text(
+          'Verify Your Email or Password',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
       backgroundColor: Appcolor.textcolor,
       body: SingleChildScrollView(
         child: Column(
           children: [
             Image.asset('assets/lock.jpg'),
-            
 
             Padding(
               padding: const EdgeInsets.all(10),
@@ -120,9 +125,7 @@ class _OtpscreenState extends State<Otpscreen> {
 
                 if (otp.length < 4) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text("Please enter full OTP"),
-                    ),
+                    const SnackBar(content: Text("Please enter full OTP")),
                   );
                   return;
                 }
@@ -143,8 +146,14 @@ class _OtpscreenState extends State<Otpscreen> {
                   context,
                   MaterialPageRoute(builder: (_) => Newpassword()),
                 );
-              },style: ElevatedButton.styleFrom(backgroundColor: Appcolor.appcolor),
-              child:  Text("Verify OTP",style: TextStyle(color: Appcolor.backcolor),),
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Appcolor.appcolor,
+              ),
+              child: Text(
+                "Verify OTP",
+                style: TextStyle(color: Appcolor.backcolor),
+              ),
             ),
           ],
         ),

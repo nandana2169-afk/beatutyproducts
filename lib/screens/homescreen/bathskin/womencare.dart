@@ -14,7 +14,7 @@ class Womencare extends StatefulWidget {
 }
 
 class _WomencareState extends State<Womencare> {
-     final List<Products> products = [
+  final List<Products> products = [
     Products(
       name: " Whisper Ultra ",
 
@@ -27,7 +27,7 @@ class _WomencareState extends State<Womencare> {
       boughtCount: "50k+",
 
       price: 355,
-      discountPrice: 335 ,
+      discountPrice: 335,
       offer: "5% OFF",
     ),
     Products(
@@ -108,7 +108,7 @@ class _WomencareState extends State<Womencare> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-         appBar: AppBar(
+      appBar: AppBar(
         title: const Text(
           'Women Care',
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -390,16 +390,16 @@ class ProductDetailPage extends StatelessWidget {
                         ),
                         child: IconButton(
                           onPressed: () async {
-    await CartStorage.addToCart(product);
-if(!context.mounted)return;
-    // 👇 Navigate to cart screen after adding
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const Shopingbag(),
-      ),
-    );
-  },
+                            await CartStorage.addToCart(product);
+                            if (!context.mounted) return;
+                            // 👇 Navigate to cart screen after adding
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Shopingbag(),
+                              ),
+                            );
+                          },
                           icon: Icon(
                             Icons.favorite_border,
                             color: Appcolor.appcolor,
@@ -417,7 +417,17 @@ if(!context.mounted)return;
                                 borderRadius: BorderRadius.circular(12),
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () async {
+                              await CartStorage.addToCart(product);
+                              if (!context.mounted) return;
+                              // 👇 Navigate to cart screen after adding
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Shopingbag(),
+                                ),
+                              );
+                            },
                             child: Text(
                               "ADD TO BAG",
                               style: TextStyle(

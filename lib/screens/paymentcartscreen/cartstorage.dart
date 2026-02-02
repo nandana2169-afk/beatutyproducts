@@ -67,8 +67,9 @@ class CartStorage {
     if (cart.isEmpty) return;
 
     final prefs = await SharedPreferences.getInstance();
-    final List<String> history =
-        cart.map((e) => jsonEncode(e.toJson())).toList();
+    final List<String> history = cart
+        .map((e) => jsonEncode(e.toJson()))
+        .toList();
     await prefs.setStringList(_historyKey, history);
 
     await clearCart(); // clear current cart after saving

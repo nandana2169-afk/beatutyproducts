@@ -14,7 +14,7 @@ class Sellercombo extends StatefulWidget {
 }
 
 class _SellercomboState extends State<Sellercombo> {
-    final List<Products> products = [
+  final List<Products> products = [
     Products(
       name: " mcaffeine Moment ",
 
@@ -27,7 +27,7 @@ class _SellercomboState extends State<Sellercombo> {
       boughtCount: "50k+",
 
       price: 1445,
-      discountPrice: 911 ,
+      discountPrice: 911,
       offer: "5% OFF",
     ),
     Products(
@@ -108,7 +108,7 @@ class _SellercomboState extends State<Sellercombo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-         appBar: AppBar(
+      appBar: AppBar(
         title: const Text(
           'ComboPack',
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -408,16 +408,16 @@ class ProductDetailPage extends StatelessWidget {
                               ),
                             ),
                             onPressed: () async {
-    await CartStorage.addToCart(product);
-if(!context.mounted)return;
-    // 👇 Navigate to cart screen after adding
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const Shopingbag(),
-      ),
-    );
-  },
+                              await CartStorage.addToCart(product);
+                              if (!context.mounted) return;
+                              // 👇 Navigate to cart screen after adding
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Shopingbag(),
+                                ),
+                              );
+                            },
                             child: Text(
                               "ADD TO BAG",
                               style: TextStyle(

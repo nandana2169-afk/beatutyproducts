@@ -14,7 +14,7 @@ class Maskpeel extends StatefulWidget {
 }
 
 class _MaskpeelState extends State<Maskpeel> {
-   final List<Products> products = [
+  final List<Products> products = [
     Products(
       name: " Foxtale De-Tan ",
 
@@ -409,16 +409,16 @@ class ProductDetailPage extends StatelessWidget {
                               ),
                             ),
                             onPressed: () async {
-    await CartStorage.addToCart(product);
-if(!context.mounted)return;
-    // 👇 Navigate to cart screen after adding
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const Shopingbag(),
-      ),
-    );
-  },
+                              await CartStorage.addToCart(product);
+                              if (!context.mounted) return;
+                              // 👇 Navigate to cart screen after adding
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Shopingbag(),
+                                ),
+                              );
+                            },
                             child: Text(
                               "ADD TO BAG",
                               style: TextStyle(

@@ -14,7 +14,7 @@ class Toners extends StatefulWidget {
 }
 
 class _TonersState extends State<Toners> {
-   final List<Products> products = [
+  final List<Products> products = [
     Products(
       name: " Plum  ",
 
@@ -109,7 +109,7 @@ class _TonersState extends State<Toners> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
         title: const Text(
           'Toners ',
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -409,16 +409,16 @@ class ProductDetailPage extends StatelessWidget {
                               ),
                             ),
                             onPressed: () async {
-    await CartStorage.addToCart(product);
-if(!context.mounted)return;
-    // 👇 Navigate to cart screen after adding
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const Shopingbag(),
-      ),
-    );
-  },
+                              await CartStorage.addToCart(product);
+                              if (!context.mounted) return;
+                              // 👇 Navigate to cart screen after adding
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Shopingbag(),
+                                ),
+                              );
+                            },
                             child: Text(
                               "ADD TO BAG",
                               style: TextStyle(

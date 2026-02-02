@@ -1,14 +1,10 @@
 import 'package:beautyproducts/detailpages/detailpageone.dart';
 
-
 class CartItem {
   final Products product;
   int quantity;
 
-  CartItem({
-    required this.product,
-    this.quantity = 1,
-  });
+  CartItem({required this.product, this.quantity = 1});
 
   Map<String, dynamic> toJson() {
     return {

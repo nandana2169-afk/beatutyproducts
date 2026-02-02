@@ -16,12 +16,20 @@ class _LockscreenState extends State<Lockscreen> {
   final _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(backgroundColor: Appcolor.textcolor,leading: IconButton(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Appcolor.textcolor,
+        leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(
             Icons.arrow_back,
           ), // Changed from AppIcon.iconsapp for stability
-        ),title: Text('Forgot Password',style: TextStyle(fontWeight: FontWeight.bold),),),
+        ),
+        title: Text(
+          'Forgot Password',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
       backgroundColor: Appcolor.textcolor,
       body: SingleChildScrollView(
         child: Form(
@@ -29,12 +37,13 @@ class _LockscreenState extends State<Lockscreen> {
           child: Column(
             children: [
               Image.asset('assets/lock.jpg'),
-              
+
               Padding(
                 padding: const EdgeInsets.all(15),
                 child: Text(
-                  "Please Enter Your Email Address or Phone Number To Recieve a Verification Code.", textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18,),
+                  "Please Enter Your Email Address or Phone Number To Recieve a Verification Code.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
               ),
               Padding(
@@ -47,9 +56,11 @@ class _LockscreenState extends State<Lockscreen> {
                     prefixIcon: Icon(Icons.email, color: Appcolor.backcolor),
 
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Appcolor.appcolor)
-                    // ),focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: Appcolor.appcolor,))
-                  ),),
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: Appcolor.appcolor),
+                      // ),focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: Appcolor.appcolor,))
+                    ),
+                  ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter phone number or email';
@@ -69,7 +80,8 @@ class _LockscreenState extends State<Lockscreen> {
                     return null;
                   },
                 ),
-              ),SizedBox(height: 15,),
+              ),
+              SizedBox(height: 15),
               ElevatedButton(
                 onPressed: () async {
                   // Show loading
@@ -91,7 +103,10 @@ class _LockscreenState extends State<Lockscreen> {
                     context,
                     MaterialPageRoute(builder: (_) => Otpscreen()),
                   );
-                },style: ElevatedButton.styleFrom(backgroundColor: Appcolor.appcolor),
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Appcolor.appcolor,
+                ),
                 child: Text(
                   "Send OTP",
                   style: TextStyle(

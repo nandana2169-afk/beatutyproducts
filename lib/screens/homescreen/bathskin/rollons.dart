@@ -14,7 +14,7 @@ class Rollons extends StatefulWidget {
 }
 
 class _RollonsState extends State<Rollons> {
-   final List<Products> products = [
+  final List<Products> products = [
     Products(
       name: " Be Bodywise",
 
@@ -26,7 +26,7 @@ class _RollonsState extends State<Rollons> {
       rating: 4.5,
       boughtCount: "50k+",
 
-      price:  399,
+      price: 399,
       discountPrice: 379,
       offer: "5% OFF",
     ),
@@ -109,7 +109,7 @@ class _RollonsState extends State<Rollons> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          appBar: AppBar(
+      appBar: AppBar(
         title: const Text(
           'Body Rollons',
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -408,17 +408,17 @@ class ProductDetailPage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12),
                               ),
                             ),
-                            onPressed: ()async {
-    await CartStorage.addToCart(product);
-if(!context.mounted)return;
-    // 👇 Navigate to cart screen after adding
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const Shopingbag(),
-      ),
-    );
-  },
+                            onPressed: () async {
+                              await CartStorage.addToCart(product);
+                              if (!context.mounted) return;
+                              // 👇 Navigate to cart screen after adding
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Shopingbag(),
+                                ),
+                              );
+                            },
                             child: Text(
                               "ADD TO BAG",
                               style: TextStyle(

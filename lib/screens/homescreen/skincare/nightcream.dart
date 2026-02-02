@@ -14,7 +14,7 @@ class Nightcream extends StatefulWidget {
 }
 
 class _NightcreamState extends State<Nightcream> {
-    final List<Products> products = [
+  final List<Products> products = [
     Products(
       name: " Cetaphil",
 
@@ -94,8 +94,7 @@ class _NightcreamState extends State<Nightcream> {
 
       description:
           "This nourishing moisturizing cream delivers our uniquely stabilized retinol within the skin's surface to improve the signs of ageing and regenerate the look of skin.",
-      features:
-          'Visibly repair wrinkles and early ageing signs in 7 days',
+      features: 'Visibly repair wrinkles and early ageing signs in 7 days',
       images: ['assets/nightcreamsix.jpg'],
       rating: 4.0,
       boughtCount: "30k+",
@@ -108,7 +107,7 @@ class _NightcreamState extends State<Nightcream> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
         title: const Text(
           'Night Cream',
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -408,16 +407,16 @@ class ProductDetailPage extends StatelessWidget {
                               ),
                             ),
                             onPressed: () async {
-    await CartStorage.addToCart(product);
-if(!context.mounted)return;
-    // 👇 Navigate to cart screen after adding
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const Shopingbag(),
-      ),
-    );
-  },
+                              await CartStorage.addToCart(product);
+                              if (!context.mounted) return;
+                              // 👇 Navigate to cart screen after adding
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Shopingbag(),
+                                ),
+                              );
+                            },
                             child: Text(
                               "ADD TO BAG",
                               style: TextStyle(
@@ -438,6 +437,5 @@ if(!context.mounted)return;
         ),
       ),
     );
-    
   }
 }

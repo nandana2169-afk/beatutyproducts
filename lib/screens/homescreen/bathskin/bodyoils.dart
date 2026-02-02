@@ -15,7 +15,7 @@ class Bodyoils extends StatefulWidget {
 }
 
 class _BodyoilsState extends State<Bodyoils> {
-   final List<Products> products = [
+  final List<Products> products = [
     Products(
       name: " OSEA Undaria ",
 
@@ -27,7 +27,7 @@ class _BodyoilsState extends State<Bodyoils> {
       rating: 4.5,
       boughtCount: "50k+",
 
-      price:  799,
+      price: 799,
       discountPrice: 579,
       offer: "5% OFF",
     ),
@@ -79,7 +79,7 @@ class _BodyoilsState extends State<Bodyoils> {
       name: "Palmer's Cocoa ",
 
       description:
-                  'If you are looking for a body oil that adds a radiant glow while nourishing your skin, Palmer’s Cocoa Butter Shimmer Body Oil with Vitamin E is a perfect choice. It creates a beautiful, golden shimmer that enhances dark skin tones, tans, or summer skin, making you look effortlessly luminous. Formulated with cocoa butter and Vitamin E, it delivers 48 hours of hydration, softening and nourishing your skin.',
+          'If you are looking for a body oil that adds a radiant glow while nourishing your skin, Palmer’s Cocoa Butter Shimmer Body Oil with Vitamin E is a perfect choice. It creates a beautiful, golden shimmer that enhances dark skin tones, tans, or summer skin, making you look effortlessly luminous. Formulated with cocoa butter and Vitamin E, it delivers 48 hours of hydration, softening and nourishing your skin.',
       features:
           'individuals seeking a luminous, hydrating body oil that enhances dark skin tones, tans, or summer skin with a natural, subtle shimmer for special occasions or everyday radiance.',
       images: ['assets/cocaoil.jpg'],
@@ -109,7 +109,7 @@ class _BodyoilsState extends State<Bodyoils> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
+      appBar: AppBar(
         title: const Text(
           'Body Oils',
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -408,17 +408,17 @@ class ProductDetailPage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12),
                               ),
                             ),
-                            onPressed: ()async {
-    await CartStorage.addToCart(product);
-if(!context.mounted)return;
-    // 👇 Navigate to cart screen after adding
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const Shopingbag(),
-      ),
-    );
-  },
+                            onPressed: () async {
+                              await CartStorage.addToCart(product);
+                              if (!context.mounted) return;
+                              // 👇 Navigate to cart screen after adding
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Shopingbag(),
+                                ),
+                              );
+                            },
                             child: Text(
                               "ADD TO BAG",
                               style: TextStyle(

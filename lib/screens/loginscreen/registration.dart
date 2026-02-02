@@ -4,7 +4,6 @@ import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/screens/bottomnavigation/bottomnavigation.dart';
 import 'package:beautyproducts/screens/loginscreen/signup.dart';
 
-
 class Registration extends StatefulWidget {
   const Registration({super.key});
 
@@ -29,7 +28,6 @@ class _RegistrationState extends State<Registration> {
             key: _formkey,
             child: Column(
               children: [
-
                 /// 🔹 Space from top
                 const SizedBox(height: 150),
 
@@ -52,49 +50,61 @@ class _RegistrationState extends State<Registration> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       /// ✔ Email / Phone
                       Padding(
                         padding: const EdgeInsets.all(10),
                         child: TextFormField(
-                  controller: phonecontroller,
+                          controller: phonecontroller,
 
-                  decoration: InputDecoration(
-                    hintText: "Email/Phonenumber",
-                    prefixIcon: Icon(Icons.email, color: Appcolor.backcolor),
+                          decoration: InputDecoration(
+                            hintText: "Email/Phonenumber",
+                            prefixIcon: Icon(
+                              Icons.email,
+                              color: Appcolor.backcolor,
+                            ),
 
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Appcolor.appcolor)
-                    // ),focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: Appcolor.appcolor,))
-                  ),),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter phone number or email';
-                    }
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(color: Appcolor.appcolor),
+                              // ),focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: Appcolor.appcolor,))
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter phone number or email';
+                            }
 
-                    bool isPhone = RegExp(
-                      r'^(?:\+91|0)?[6-9]\d{9}$',
-                    ).hasMatch(value);
+                            bool isPhone = RegExp(
+                              r'^(?:\+91|0)?[6-9]\d{9}$',
+                            ).hasMatch(value);
 
-                    bool isEmail = RegExp(
-                      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-                    ).hasMatch(value);
+                            bool isEmail = RegExp(
+                              r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+                            ).hasMatch(value);
 
-                    if (!isPhone && !isEmail) {
-                      return 'Enter valid phone number OR email';
-                    }
-                    return null;
-                  },
-                ),
+                            if (!isPhone && !isEmail) {
+                              return 'Enter valid phone number OR email';
+                            }
+                            return null;
+                          },
+                        ),
                       ),
 
                       /// ✔ Password
                       Padding(
                         padding: const EdgeInsets.all(10),
                         child: TextFormField(
-                       decoration: InputDecoration(hintText: "Password",prefixIcon: Icon(Icons.password_outlined,color: Appcolor.backcolor,),
-                       enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10,),borderSide: BorderSide(color: Appcolor.appcolor))
-                       ),
+                          decoration: InputDecoration(
+                            hintText: "Password",
+                            prefixIcon: Icon(
+                              Icons.password_outlined,
+                              color: Appcolor.backcolor,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(color: Appcolor.appcolor),
+                            ),
+                          ),
                           controller: passwordcontroller,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -124,9 +134,7 @@ class _RegistrationState extends State<Registration> {
                                 ),
                                 Text(
                                   "Remember me",
-                                  style: TextStyle(
-                                    color: Appcolor.backcolor,
-                                  ),
+                                  style: TextStyle(color: Appcolor.backcolor),
                                 ),
                               ],
                             ),
@@ -137,16 +145,13 @@ class _RegistrationState extends State<Registration> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Lockscreen(),
+                                    builder: (context) => const Lockscreen(),
                                   ),
                                 );
                               },
                               child: Text(
                                 "Forgot Password?",
-                                style: TextStyle(
-                                  color: Appcolor.backcolor,
-                                ),
+                                style: TextStyle(color: Appcolor.backcolor),
                               ),
                             ),
                           ],

@@ -31,7 +31,6 @@ class _SignupState extends State<Signup> {
           child: Form(
             key: _formkey,
             child: Column(
-             
               children: [
                 const SizedBox(height: 120),
 
@@ -58,9 +57,12 @@ class _SignupState extends State<Signup> {
                       TextFormField(
                         controller: namecontroller,
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.person, color: Appcolor.backcolor),
+                          prefixIcon: Icon(
+                            Icons.person,
+                            color: Appcolor.backcolor,
+                          ),
                           hintText: 'Name',
-                  enabledBorder: OutlineInputBorder(
+                          enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(color: Appcolor.appcolor),
                           ),
@@ -76,9 +78,18 @@ class _SignupState extends State<Signup> {
                       const SizedBox(height: 10),
 
                       TextFormField(
-                      controller: emailcontroller,
-                      decoration: InputDecoration(hintText: 'Email',prefixIcon: Icon(Icons.email,color: Appcolor.backcolor,),
-                      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Appcolor.appcolor))),
+                        controller: emailcontroller,
+                        decoration: InputDecoration(
+                          hintText: 'Email',
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: Appcolor.backcolor,
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Appcolor.appcolor),
+                          ),
+                        ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter email';
@@ -95,9 +106,18 @@ class _SignupState extends State<Signup> {
                       const SizedBox(height: 10),
 
                       TextFormField(
-                     controller: phonecontroller,
-                     decoration: InputDecoration(hintText: 'Phone Number',prefixIcon: Icon(Icons.call,color: Appcolor.backcolor,),
-                      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Appcolor.appcolor))),
+                        controller: phonecontroller,
+                        decoration: InputDecoration(
+                          hintText: 'Phone Number',
+                          prefixIcon: Icon(
+                            Icons.call,
+                            color: Appcolor.backcolor,
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Appcolor.appcolor),
+                          ),
+                        ),
                       ),
 
                       const SizedBox(height: 10),
@@ -107,12 +127,16 @@ class _SignupState extends State<Signup> {
                         obscureText: showPassword,
                         decoration: InputDecoration(
                           hintText: "Password",
-                          prefixIcon: Icon(Icons.lock,color: Appcolor.backcolor,),
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: Appcolor.backcolor,
+                          ),
                           suffixIcon: IconButton(
                             icon: Icon(
                               showPassword
                                   ? Icons.visibility_off
-                                  : Icons.visibility,color: Appcolor.backcolor,
+                                  : Icons.visibility,
+                              color: Appcolor.backcolor,
                             ),
                             onPressed: () {
                               setState(() {
@@ -121,7 +145,8 @@ class _SignupState extends State<Signup> {
                             },
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Appcolor.appcolor)
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Appcolor.appcolor),
                           ),
                         ),
                         validator: (value) {
@@ -139,12 +164,16 @@ class _SignupState extends State<Signup> {
                         obscureText: showConfirmPassword,
                         decoration: InputDecoration(
                           hintText: "Confirm Password",
-                          prefixIcon: Icon(Icons.lock,color: Appcolor.backcolor,),
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: Appcolor.backcolor,
+                          ),
                           suffixIcon: IconButton(
                             icon: Icon(
                               showConfirmPassword
                                   ? Icons.visibility_off
-                                  : Icons.visibility,color: Appcolor.backcolor,
+                                  : Icons.visibility,
+                              color: Appcolor.backcolor,
                             ),
                             onPressed: () {
                               setState(() {
@@ -153,7 +182,8 @@ class _SignupState extends State<Signup> {
                             },
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Appcolor.appcolor)
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Appcolor.appcolor),
                           ),
                         ),
                         validator: (value) {
@@ -200,16 +230,16 @@ class _SignupState extends State<Signup> {
                                 }
                               },
                               style: ElevatedButton.styleFrom(
-                              backgroundColor: Appcolor.appcolor,
-                            ),
-                            child: Text(
-                              'Sign Up',
-                              style: TextStyle(
-                                color: Appcolor.backcolor,
-                                fontSize: 20,
+                                backgroundColor: Appcolor.appcolor,
+                              ),
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                  color: Appcolor.backcolor,
+                                  fontSize: 20,
+                                ),
                               ),
                             ),
-                          ),
                           ),
                         ),
                       ),
@@ -249,8 +279,6 @@ class _SignupState extends State<Signup> {
                           ],
                         ),
                       ),
-
-                    
                     ],
                   ),
                 ),
