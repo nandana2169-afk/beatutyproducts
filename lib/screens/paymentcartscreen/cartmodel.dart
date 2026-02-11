@@ -4,7 +4,10 @@ class CartItem {
   final Products product;
   int quantity;
 
-  CartItem({required this.product, this.quantity = 1});
+  CartItem({
+    required this.product,
+    this.quantity = 1,
+  });
 
   Map<String, dynamic> toJson() {
     return {
@@ -19,8 +22,8 @@ class CartItem {
     return CartItem(
       product: Products(
         name: json['name'],
-        features: '',
         description: '',
+        features: '',
         images: [json['image']],
         rating: 0.0,
         boughtCount: '',

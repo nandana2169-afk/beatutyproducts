@@ -1,5 +1,6 @@
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/detailpages/detailpageone.dart';
+import 'package:beautyproducts/screens/favorates/favarateservice.dart';
 import 'package:beautyproducts/screens/paymentcartscreen/cartstorage.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
@@ -293,12 +294,20 @@ class _SellercomboState extends State<Sellercombo> {
   }
 }
 
-class ProductDetailPage extends StatelessWidget {
+class ProductDetailPage extends StatefulWidget {
   final Products product;
   const ProductDetailPage({super.key, required this.product});
+ @override
+  State<ProductDetailPage> createState() => _ProductDetailPageState();
+}
+
+class _ProductDetailPageState extends State<ProductDetailPage> {
+
+
 
   @override
   Widget build(BuildContext context) {
+    final product = widget.product;
     return Scaffold(
       appBar: AppBar(
         title: Text(product.name),

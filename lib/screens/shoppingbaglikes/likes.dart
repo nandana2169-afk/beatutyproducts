@@ -1,6 +1,9 @@
-import 'package:beautyproducts/Colors/colors.dart';
-import 'package:beautyproducts/Icons/icons.dart';
+import 'package:beautyproducts/screens/paymentcartscreen/cartstorage.dart';
+import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';
 import 'package:flutter/material.dart';
+import 'package:beautyproducts/Colors/colors.dart';
+import 'package:beautyproducts/screens/favorates/favarateservice.dart';
+import 'package:beautyproducts/detailpages/detailpageone.dart'; 
 
 class Likes extends StatefulWidget {
   const Likes({super.key});
@@ -10,71 +13,140 @@ class Likes extends StatefulWidget {
 }
 
 class _LikesState extends State<Likes> {
+  List<Products> favorites = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadFavorites();
+  }
+
+  Future<void> loadFavorites() async {
+    final favList = await FavoriteService.getFavorites();
+    setState(() {
+      favorites = favList;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Appcolor.appcolor,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Appcolor.textcolor,
-        leading: IconButton(onPressed: () { Navigator.pop(context);}, icon: AppIcon.iconsapp),
         title: const Text(
-          'Your Wish',
+          "My Favorites",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
+        backgroundColor: Appcolor.appcolor,
       ),
-
-      
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-          
-            Icon(Icons.favorite_border, size: 100, color: Appcolor.textcolor),
-
-            const SizedBox(height: 20),
-
-            const Text(
-              "No Favorites Yet",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-
-            const SizedBox(height: 8),
-
-            Text(
-              "Tap the heart icon to save products",
-              style: TextStyle(fontSize: 14, color: Appcolor.textcolor),
-            ),
-
-            const SizedBox(height: 30),
-
-          
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Appcolor.textcolor,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 40,
-                  vertical: 15,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
+      // --- FIX STARTS HERE ---
+      body: favorites.isEmpty
+          ? Center( // Center only takes ONE child
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center, // Centers content vertically
+                children: [
+                  Icon(
+                    Icons.favorite_border_sharp,
+                    size: 100,
+                    color: Appcolor.appcolor,
+                  ),
+                  const SizedBox(height: 20),
+                   Text(
+                    "No favorites yet",
+                    style: TextStyle(fontSize: 16, color: Appcolor.backcolor),
+                  ),
+                ],
               ),
-              child: Text(
-                "Browse Products",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Appcolor.introtext,
-                ),
-              ),
+            )
+          // --- FIX ENDS HERE ---
+          : ListView.builder(
+              itemCount: favorites.length,
+              padding: const EdgeInsets.all(10),
+              itemBuilder: (context, index) {
+                final item = favorites[index];
+
+                return Card(
+                  elevation: 2,color:  const Color.fromARGB(255, 243, 232, 232),
+                  margin: const EdgeInsets.only(bottom: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: ListTile(
+                      // tileColor:  const Color.fromARGB(255, 243, 232, 232),
+                      leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.asset(
+                          item.images[0],
+                          width: 60,
+                          height: 60,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      title: Text(
+                        item.name,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "₹${item.discountPrice}",
+                            style:  TextStyle(
+                                color: Appcolor.backcolor, 
+                                fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(height: 8),
+                          SizedBox(
+                            height: 35,
+                            width: 120,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Appcolor.appcolor,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () async {
+                                await CartStorage.addToCart(item);
+
+                                if (!context.mounted) return;
+
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Shopingbag(),
+                                  ),
+                                );
+                              },
+                              child: const Text(
+                                "ADD TO BAG",
+                                style: TextStyle(
+                                    fontSize: 11, 
+                                    color: Colors.white, 
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      trailing: IconButton(
+                        icon: const Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                          size: 30,
+                        ),
+                        onPressed: () async {
+                          await FavoriteService.toggleFavorite(item);
+                          loadFavorites();
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              },
             ),
-          ],
-        ),
-      ),
     );
   }
 }
-
-
- 

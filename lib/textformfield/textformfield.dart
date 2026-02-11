@@ -63,34 +63,30 @@ class Withouticon extends StatelessWidget {
 
 class Withoutvalidate extends StatelessWidget {
   final String hintText;
-  // final TextEditingController controller;
   final IconData icon;
-  final dynamic filled;
-  final dynamic fillColor;
-  // final String? Function(String?)? validator;
+  final bool filled;
+  final Color fillColor;
+  final Function(String)? onChanged;   // 👈 ADD THIS
+
   const Withoutvalidate({
     super.key,
     required this.hintText,
-    // required this.controller,
     required this.icon,
     required this.filled,
     required this.fillColor,
-    // this.validator,
+    this.onChanged,   // 👈 ADD THIS
   });
+
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      // controller: controller,
-      // validator: validator,
+    return TextField(
+      onChanged: onChanged,   // 👈 CONNECT HERE
       decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: BorderSide.none,
-        ),
         hintText: hintText,
         prefixIcon: Icon(icon),
-        filled: true,
-        fillColor: Colors.white,
+        filled: filled,
+        fillColor: fillColor,
+        border: OutlineInputBorder(),
       ),
     );
   }

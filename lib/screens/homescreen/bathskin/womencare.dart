@@ -1,5 +1,6 @@
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/detailpages/detailpageone.dart';
+import 'package:beautyproducts/screens/favorates/favarateservice.dart';
 import 'package:beautyproducts/screens/paymentcartscreen/cartstorage.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
@@ -293,12 +294,19 @@ class _WomencareState extends State<Womencare> {
   }
 }
 
-class ProductDetailPage extends StatelessWidget {
+class ProductDetailPage extends StatefulWidget {
   final Products product;
   const ProductDetailPage({super.key, required this.product});
+ @override
+  State<ProductDetailPage> createState() => _ProductDetailPageState();
+}
 
+class _ProductDetailPageState extends State<ProductDetailPage> {
+
+ 
   @override
   Widget build(BuildContext context) {
+    final product = widget.product;
     return Scaffold(
       appBar: AppBar(
         title: Text(product.name),
@@ -378,7 +386,7 @@ class ProductDetailPage extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 30),
-                  Row(
+                   Row(
                     children: [
                       Container(
                         decoration: BoxDecoration(
@@ -388,18 +396,8 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        child: IconButton(
-                          onPressed: () async {
-                            await CartStorage.addToCart(product);
-                            if (!context.mounted) return;
-                            // 👇 Navigate to cart screen after adding
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Shopingbag(),
-                              ),
-                            );
-                          },
+                        child:  IconButton(
+                          onPressed: () {},
                           icon: Icon(
                             Icons.favorite_border,
                             color: Appcolor.appcolor,

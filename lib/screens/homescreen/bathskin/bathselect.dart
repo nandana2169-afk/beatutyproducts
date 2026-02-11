@@ -1,5 +1,5 @@
 import 'package:beautyproducts/detailpages/detailpageone.dart';
-
+import 'package:beautyproducts/screens/favorates/favarateservice.dart';
 import 'package:beautyproducts/screens/paymentcartscreen/cartstorage.dart';
 import 'package:flutter/material.dart';
 import 'package:beautyproducts/Colors/colors.dart';
@@ -18,89 +18,66 @@ class _BathselectState extends State<Bathselect> {
   final List<Products> products = [
     Products(
       name: "NIVEA Nourishing ",
-
-      description:
-          "Youthful looking Skin; Blackcurrant and Bearberry extracts pampers your skin and gives you a youthful glow.; Lucisous fragrance surrounds you for a long time.Softer, Smoother Skin Enriched with Skin Conditioners and Moisture Lock it helps to retain moisture of the skin to make it softer, smoother and supple",
-      features:
-          'The soft, buttery gel lathers well on the skin and washes away dirt to make it clean and clear.',
+      description: "Youthful looking Skin; Blackcurrant and Bearberry extracts...",
+      features: 'The soft, buttery gel lathers well on the skin...',
       images: ['assets/nivyalosh.jpg'],
       rating: 4.5,
       boughtCount: "50k+",
-
       price: 600,
       discountPrice: 400,
       offer: "5% OFF",
     ),
     Products(
       name: " Dot & Key Vitamin C",
-
-      description:
-          "Dot & Key Vitamin C + E Super Bright Body Lotion is a deep nourishing body lotion that helps to reduce dark spots and tanning, leaving your skin looking visibly brighter and more radiant. It is enriched with triple Vitamin C and Niacinamide that help to deeply nourish and hydrate your skin.",
-      features:
-          'Reduces dark spots and tanning,Enriched with triple Vitamin C and Niacinamide,Provides deep nourishment and hydration,Suitable for both women and men',
+      description: "Dot & Key Vitamin C + E Super Bright Body Lotion...",
+      features: 'Reduces dark spots...',
       images: ['assets/dotkylosh.jpg'],
       rating: 4.0,
       boughtCount: "30k+",
-
       price: 999,
       discountPrice: 849,
       offer: "15% OFF",
     ),
     Products(
       name: "Love Beauty & Planet",
-      description:
-          "Love Beauty & Planet Murumuru Butter & Rose Daily Moisturising Lotion is a gentle and nourishing body lotion that provides instant glow to your skin. It is enriched with murumuru butter and rose extract that help to deeply moisturize and soften your skin.",
-      features:
-          'Provides instant glow,Enriched with murumuru butter and rose extract,Suitable for all skin types,Paraben-free formula',
+      description: "Love Beauty & Planet Murumuru Butter & Rose...",
+      features: 'Provides instant glow...',
       images: ['assets/beautylosh.jpg'],
       rating: 4.0,
       boughtCount: "30k+",
-
       price: 999,
       discountPrice: 849,
       offer: "15% OFF",
     ),
     Products(
       name: " mCaffeine Deep Moisturizing",
-
-      description:
-          "mCaffeine Deep Moisturizing Choco Body Lotion is a deeply moisturizing body lotion that is suitable for all seasons. It is enriched with cocoa butter and shea butter that help to deeply nourish and hydrate your skin, leaving it feeling soft and smooth.",
-      features:
-          'Provides deep moisturization,Enriched with cocoa butter and shea butter,Suitable for all seasons,Non-sticky formula,Suitable for both women and men',
+      description: "mCaffeine Deep Moisturizing Choco Body Lotion...",
+      features: 'Provides deep moisturization...',
       images: ['assets/coffielosh.jpg'],
       rating: 4.0,
       boughtCount: "30k+",
-
       price: 999,
       discountPrice: 849,
       offer: "15% OFF",
     ),
     Products(
       name: "PONDs Moisturizing",
-
-      description:
-          "POND'S Moisturizing Body Lotion is a lightweight body lotion that provides 3X moisturization to your skin, leaving it feeling silky soft, smooth, and radiant. It is enriched with Niacinamide that helps to brighten and even out your skin tone.",
-      features:
-          'Provides 3X moisturization,Enriched with Niacinamide for skin brightening,Lightweight and non-sticky formula,Quick-absorbing,Suitable for all skin types',
+      description: "POND'S Moisturizing Body Lotion...",
+      features: 'Provides 3X moisturization...',
       images: ['assets/pondsloh.jpg'],
       rating: 4.0,
       boughtCount: "30k+",
-
       price: 999,
       discountPrice: 849,
       offer: "15% OFF",
     ),
     Products(
       name: "Vaseline Intensive ",
-
-      description:
-          "Vaseline Intensive Care, Deep Moisture Nourishing Body Lotion is a deeply moisturizing body lotion that helps to nourish and hydrate dry, rough skin, leaving it feeling soft and smooth. It is enriched with glycerin that helps to lock in moisture and keep your skin hydrated all day long.",
-      features:
-          'Provides deep moisture and nourishment,Enriched with glycerin for long-lasting hydration,Non-sticky and fast-absorbing formula,Suitable for dry and rough skin,Suitable for both men and women',
+      description: "Vaseline Intensive Care, Deep Moisture...",
+      features: 'Provides deep moisture...',
       images: ['assets/vaslosh.jpg'],
       rating: 4.0,
       boughtCount: "30k+",
-
       price: 999,
       discountPrice: 849,
       offer: "15% OFF",
@@ -111,37 +88,23 @@ class _BathselectState extends State<Bathselect> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Body Lotions',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
+        title: const Text('Body Lotions', style: TextStyle(fontWeight: FontWeight.bold)),
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(
-            Icons.arrow_back,
-          ), // Changed from AppIcon.iconsapp for stability
+          icon: const Icon(Icons.arrow_back),
         ),
         backgroundColor: Appcolor.textcolor,
         actions: [
           IconButton(
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Notifications()),
-            ),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Notifications())),
             icon: Icon(Icons.notifications, color: Appcolor.backcolor),
           ),
           IconButton(
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Likes()),
-            ),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Likes())),
             icon: Icon(Icons.favorite, color: Appcolor.backcolor),
           ),
           IconButton(
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Shopingbag()),
-            ),
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Shopingbag())),
             icon: Icon(Icons.shopping_bag, color: Appcolor.backcolor),
           ),
         ],
@@ -154,9 +117,7 @@ class _BathselectState extends State<Bathselect> {
             children: [
               Card(
                 elevation: 3,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                 clipBehavior: Clip.antiAlias,
                 child: Image.asset(
                   'assets/bodyloshe.jpg',
@@ -174,117 +135,10 @@ class _BathselectState extends State<Bathselect> {
                   crossAxisCount: 2,
                   mainAxisSpacing: 12,
                   crossAxisSpacing: 12,
-                  childAspectRatio: 0.75,
+                  childAspectRatio: 0.68, // Adjusted slightly to fit the new buttons
                 ),
                 itemBuilder: (context, index) {
-                  final item = products[index];
-                  return InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              ProductDetailPage(product: item),
-                        ),
-                      );
-                    },
-                    child: Card(
-                      color: Appcolor.lightwhite,
-                      elevation: 3,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      clipBehavior: Clip.antiAlias,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Image.asset(
-                              item.images[0],
-                              fit: BoxFit.contain,
-                              width: double.infinity,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 6,
-                              vertical: 2,
-                            ),
-                            child: Text(
-                              item.name,
-                              maxLines: 1,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 13,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 6),
-                            child: Row(
-                              children: [
-                                Text(
-                                  "₹${item.discountPrice} ",
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                                Text(
-                                  "₹${item.price}",
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                    decoration: TextDecoration.lineThrough,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 6),
-                            child: Text(
-                              item.offer,
-                              style: TextStyle(
-                                color: Appcolor.introtext,
-                                fontSize: 11,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 6,
-                              vertical: 2,
-                            ),
-                            child: Row(
-                              children: [
-                                const Icon(
-                                  Icons.star,
-                                  color: Colors.orange,
-                                  size: 14,
-                                ),
-                                const SizedBox(width: 4),
-                                Text(
-                                  item.rating.toString(),
-                                  style: const TextStyle(fontSize: 12),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 6, bottom: 5),
-                            child: Text(
-                              "${item.boughtCount} bought",
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Appcolor.introtext,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
+                  return ProductGridItem(item: products[index]);
                 },
               ),
             ],
@@ -295,13 +149,192 @@ class _BathselectState extends State<Bathselect> {
   }
 }
 
-// --- 3. PRODUCT DETAIL PAGE ---
-class ProductDetailPage extends StatelessWidget {
-  final Products product;
-  const ProductDetailPage({super.key, required this.product});
+// --- NEW WIDGET FOR GRID ITEM TO HANDLE BUTTONS ---
+class ProductGridItem extends StatefulWidget {
+  final Products item;
+  const ProductGridItem({super.key, required this.item});
+
+  @override
+  State<ProductGridItem> createState() => _ProductGridItemState();
+}
+
+class _ProductGridItemState extends State<ProductGridItem> {
+  bool isLiked = false;
+
+  @override
+  void initState() {
+    super.initState();
+    checkIfLiked();
+  }
+
+  void checkIfLiked() async {
+    bool fav = await FavoriteService.isFavorite(widget.item);
+    setState(() { isLiked = fav; });
+  }
 
   @override
   Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetailPage(product: widget.item)));
+      },
+      child: Card(
+        color: Appcolor.lightwhite,
+        elevation: 3,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        clipBehavior: Clip.antiAlias,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // IMAGE + LIKE BUTTON OVERLAY
+            Expanded(
+              child: Stack(
+                children: [
+                  Image.asset(
+                    widget.item.images[0],
+                    fit: BoxFit.contain,
+                    width: double.infinity,
+                  ),
+                  Positioned(
+                    top: 5,
+                    right: 5,
+                    child: GestureDetector(
+                      onTap: () async {
+                        await FavoriteService.toggleFavorite(widget.item);
+                        setState(() { isLiked = !isLiked; });
+                        // Go to Likes page after liking
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Likes()));
+                      },
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white.withOpacity(0.8),
+                        radius: 16,
+                        child: Icon(
+                          isLiked ? Icons.favorite : Icons.favorite_border,
+                          color: Colors.pink,
+                          size: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+              child: Text(
+                widget.item.name,
+                maxLines: 1,
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 6),
+              child: Row(
+                children: [
+                  Text("₹${widget.item.discountPrice} ", style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                  Text("₹${widget.item.price}", style: const TextStyle(fontSize: 12, decoration: TextDecoration.lineThrough, color: Colors.grey)),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 6),
+              child: Text(widget.item.offer, style: TextStyle(color: Appcolor.introtext, fontSize: 11)),
+            ),
+
+            // RATING + ADD TO CART BUTTON ROW
+            Padding(
+              padding: const EdgeInsets.only(left: 6, right: 6, bottom: 5, top: 2),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(Icons.star, color: Colors.orange, size: 14),
+                          const SizedBox(width: 4),
+                          Text(widget.item.rating.toString(), style: const TextStyle(fontSize: 12)),
+                        ],
+                      ),
+                      Text("${widget.item.boughtCount} bought", style: TextStyle(fontSize: 10, color: Appcolor.introtext)),
+                    ],
+                  ),
+                  // ADD TO CART BUTTON
+                  GestureDetector(
+                    onTap: () async {
+                      await CartStorage.addToCart(widget.item); // Ensure addToCart logic exists
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Shopingbag()));
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(6),
+                      decoration: BoxDecoration(
+                        color: Appcolor.appcolor,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(Icons.add_shopping_cart, color: Appcolor.backcolor, size: 18),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// --- 3. PRODUCT DETAIL PAGE ---
+class ProductDetailPage extends StatefulWidget {
+  final Products product;
+
+  const ProductDetailPage({super.key, required this.product});
+
+  @override
+  State<ProductDetailPage> createState() => _ProductDetailPageState();
+}
+
+class _ProductDetailPageState extends State<ProductDetailPage> {
+
+   bool isFav = false;
+
+ // Inside _ProductDetailPageState
+
+// Inside _ProductDetailPageState
+
+// Inside _ProductDetailPageState
+
+@override
+void initState() {
+  super.initState();
+  checkFavorite(); // CHECK IMMEDIATELY ON OPEN
+}
+
+Future<void> checkFavorite() async {
+  // Use the name-based service to check status
+  bool fav = await FavoriteService.isFavorite(widget.product);
+  if (mounted) {
+    setState(() {
+      isFav = fav;
+    });
+  }
+}
+
+Future<void> toggleFavorite() async {
+  await FavoriteService.toggleFavorite(widget.product);
+  // Re-check from storage to be 100% sure the UI matches the data
+  bool updatedStatus = await FavoriteService.isFavorite(widget.product);
+  setState(() {
+    isFav = updatedStatus;
+  });
+}
+
+  @override
+  Widget build(BuildContext context) {
+    final product = widget.product;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(product.name),
@@ -330,6 +363,7 @@ class ProductDetailPage extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 15),
+
                   Row(
                     children: [
                       Text(
@@ -359,7 +393,9 @@ class ProductDetailPage extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   const Divider(height: 30),
+
                   const Text(
                     "Product Description",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -369,7 +405,9 @@ class ProductDetailPage extends StatelessWidget {
                     product.description,
                     style: const TextStyle(fontSize: 15, height: 1.6),
                   ),
+
                   const SizedBox(height: 10),
+
                   const Text(
                     "Features",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -381,6 +419,7 @@ class ProductDetailPage extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 30),
+
                   Row(
                     children: [
                       Container(
@@ -391,15 +430,20 @@ class ProductDetailPage extends StatelessWidget {
                           ),
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.favorite_border,
-                            color: Appcolor.appcolor,
-                          ),
-                        ),
+                        child:    IconButton(
+                onPressed: toggleFavorite,
+                icon: Icon(
+                  isFav
+                      ? Icons.favorite
+                      : Icons.favorite_border,
+                  color: Colors.pink,
+                  size: 30,
+                ),
+              ),
                       ),
+
                       const SizedBox(width: 12),
+
                       Expanded(
                         child: SizedBox(
                           height: 50,
@@ -413,11 +457,12 @@ class ProductDetailPage extends StatelessWidget {
                             onPressed: () async {
                               await CartStorage.addToCart(product);
                               if (!context.mounted) return;
-                              // 👇 Navigate to cart screen after adding
+
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const Shopingbag(),
+                                  builder: (context) =>
+                                      const Shopingbag(),
                                 ),
                               );
                             },
@@ -443,6 +488,7 @@ class ProductDetailPage extends StatelessWidget {
     );
   }
 }
+
 
 //   Widget _infoRow(String label, String value) {
 //     return Padding(

@@ -62,6 +62,13 @@ class _SignupState extends State<Signup> {
                             color: Appcolor.backcolor,
                           ),
                           hintText: 'Name',
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: Appcolor.appcolor,
+                              width: 2,
+                            ),
+                          ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(color: Appcolor.appcolor),
@@ -81,6 +88,13 @@ class _SignupState extends State<Signup> {
                         controller: emailcontroller,
                         decoration: InputDecoration(
                           hintText: 'Email',
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: Appcolor.appcolor,
+                              width: 2,
+                            ),
+                          ),
                           prefixIcon: Icon(
                             Icons.email,
                             color: Appcolor.backcolor,
@@ -109,6 +123,13 @@ class _SignupState extends State<Signup> {
                         controller: phonecontroller,
                         decoration: InputDecoration(
                           hintText: 'Phone Number',
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: Appcolor.appcolor,
+                              width: 2,
+                            ),
+                          ),
                           prefixIcon: Icon(
                             Icons.call,
                             color: Appcolor.backcolor,
@@ -122,16 +143,22 @@ class _SignupState extends State<Signup> {
 
                       const SizedBox(height: 10),
 
+                      // --- PASSWORD FIELD ---
                       TextFormField(
                         controller: passwordcontroller,
+                        // obscureText: true hides text, false shows it.
+                        // We initialize showPassword as true in our State class.
                         obscureText: showPassword,
+                        autocorrect: false,
+                        enableSuggestions: false,
                         decoration: InputDecoration(
                           hintText: "Password",
                           prefixIcon: Icon(
-                            Icons.lock,
+                            Icons.lock_outline,
                             color: Appcolor.backcolor,
                           ),
                           suffixIcon: IconButton(
+                            // Toggle the icon based on visibility state
                             icon: Icon(
                               showPassword
                                   ? Icons.visibility_off
@@ -148,24 +175,50 @@ class _SignupState extends State<Signup> {
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(color: Appcolor.appcolor),
                           ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: Appcolor.appcolor,
+                              width: 2,
+                            ),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: const BorderSide(color: Colors.red),
+                          ),
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter password';
                           }
+
+                          // NEW PATTERN:
+                          // (?=.*[A-Za-z]) -> Must contain at least one letter
+                          // (?=.*\d)       -> Must contain at least one number
+                          // .{8,}          -> Must be at least 8 characters long
+                          final regex = RegExp(
+                            r'^(?=.*[A-Za-z])(?=.*\d).{8,}$',
+                          );
+
+                          if (!regex.hasMatch(value)) {
+                            return 'Password must be 8 characters with letters and numbers';
+                          }
                           return null;
                         },
                       ),
 
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 20),
 
+                      // --- CONFIRM PASSWORD FIELD ---
                       TextFormField(
                         controller: confirmpasswordcontroller,
                         obscureText: showConfirmPassword,
+                        autocorrect: false,
+                        enableSuggestions: false,
                         decoration: InputDecoration(
                           hintText: "Confirm Password",
                           prefixIcon: Icon(
-                            Icons.lock,
+                            Icons.lock_reset_outlined,
                             color: Appcolor.backcolor,
                           ),
                           suffixIcon: IconButton(
@@ -185,12 +238,23 @@ class _SignupState extends State<Signup> {
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(color: Appcolor.appcolor),
                           ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: Appcolor.appcolor,
+                              width: 2,
+                            ),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: const BorderSide(color: Colors.red),
+                          ),
                         ),
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter confirm password';
+                          if (value == null || value.isEmpty){
+                            return 'Please confirm your password';
                           }
-                          if (value != passwordcontroller.text) {
+                          if (value != passwordcontroller.text){
                             return 'Passwords do not match';
                           }
                           return null;

@@ -1,6 +1,9 @@
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/Icons/icons.dart';
+import 'package:beautyproducts/detailpages/detailpageone.dart';
 import 'package:beautyproducts/detailpages/detalipage.dart';
+import 'package:beautyproducts/screens/fragnanace/fragnance.dart';
+import 'package:beautyproducts/screens/paymentcartscreen/cartstorage.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';
@@ -14,111 +17,92 @@ class Hairstyling extends StatefulWidget {
 }
 
 class _HairstylingState extends State<Hairstyling> {
-   final List<Product> products = [
-    Product(
+   final List<Products> products = [
+    Products(
       name: "Ktein Natural",
-      subtitle: "100% ALCOHOL FREE: Ktein Hair Holding Spray is made 100% free of alcohol, it can be safely used on daily basis without harming or drying the hair.",
+    
       description:
           "NO HARMFUL INGREDIENTS:This product contains No parabens, No sulphates, No Siicones, No Synthetic Colours",
+        features:
+          'uitable for all scalp types, this scalp moisturizer is for anyone looking to fight oil-free hydration without any greasy shine.',
       images: ['assets/hairsprey.jpg'],
       rating: 4.5,
       boughtCount: "50k+",
-      ingredients: ["Biotin (Vitamin B7)", "Argan Oil", "Vitamin E"],
-      concern: "Dryness",
-      hairType: "All",
-      scalpType: "Normal",
-      formulation: "Liquid",
-      preference: "Shape & Hold",
+    
       price: 350,
       discountPrice: 250,
       offer: "20% OFF",
     ),
-   Product(
+   Products(
       name: "PLIX - THE PLANT",
-      subtitle: "Nourishes the scalp, strengthens hair roots, reduces hair fall, and adds natural shine",
+      
       description:
           "Hair oil repairs hair by restoring moisture, strengthening the cuticle, and reducing breakage",
+      features:
+          'uitable for all scalp types, this scalp moisturizer is for anyone looking to fight oil-free hydration without any greasy shine.',
       images: ['assets/plixsprey.jpg'],
       rating: 4.5,
       boughtCount: "50k+",
-      ingredients: ["Biotin (Vitamin B7)", "Argan Oil", "Vitamin E"],
-      concern: "Dryness",
-      hairType: "All",
-      scalpType: "Normal",
-      formulation: "Liquid",
-      preference: "Paraben Free",
+    
       price: 350,
       discountPrice: 250,
       offer: "20% OFF",
     ),
-    Product(
+    Products(
       name: "Dove Strength",
-      subtitle: "Nourishes the scalp, strengthens hair roots, reduces hair fall, and adds natural shine",
       description:
           "Hair oil repairs hair by restoring moisture, strengthening the cuticle, and reducing breakage",
+       features:
+          'uitable for all scalp types, this scalp moisturizer is for anyone looking to fight oil-free hydration without any greasy shine.',
       images: ['assets/dovesprey.jpg'],
       rating: 4.5,
       boughtCount: "50k+",
-      ingredients: ["Biotin (Vitamin B7)", "Argan Oil", "Vitamin E"],
-      concern: "Dryness",
-      hairType: "All",
-      scalpType: "Normal",
-      formulation: "Liquid",
-      preference: "Paraben Free",
+    
       price: 350,
       discountPrice: 250,
       offer: "20% OFF",
     ),
-     Product(
+     Products(
       name: "Mama Earth ",
-      subtitle: "Nourishes the scalp, strengthens hair roots, reduces hair fall, and adds natural shine",
+     
       description:
           "Hair oil repairs hair by restoring moisture, strengthening the cuticle, and reducing breakage",
+       features:
+          'uitable for all scalp types, this scalp moisturizer is for anyone looking to fight oil-free hydration without any greasy shine.',
       images: ['assets/mamasprey.jpg'],
       rating: 4.5,
       boughtCount: "50k+",
-      ingredients: ["Biotin (Vitamin B7)", "Argan Oil", "Vitamin E"],
-      concern: "Dryness",
-      hairType: "All",
-      scalpType: "Normal",
-      formulation: "Liquid",
-      preference: "Paraben Free",
+    
       price: 350,
       discountPrice: 250,
       offer: "20% OFF",
     ),
- Product(
+ Products(
       name: "ALPS",
-      subtitle: "Nourishes the scalp, strengthens hair roots, reduces hair fall, and adds natural shine",
+    
       description:
           "Hair oil repairs hair by restoring moisture, strengthening the cuticle, and reducing breakage",
+       features:
+          'uitable for all scalp types, this scalp moisturizer is for anyone looking to fight oil-free hydration without any greasy shine.',
       images: ['assets/alpssprey.jpg'],
       rating: 4.5,
       boughtCount: "50k+",
-      ingredients: ["Biotin (Vitamin B7)", "Argan Oil", "Vitamin E"],
-      concern: "Dryness",
-      hairType: "All",
-      scalpType: "Normal",
-      formulation: "Liquid",
-      preference: "Paraben Free",
+     
       price: 350,
       discountPrice: 250,
       offer: "20% OFF",
     ),
-    Product(
+    Products(
       name: "Bare Anatomy Rosemary ",
-      subtitle: "Nourishes the scalp, strengthens hair roots, reduces hair fall, and adds natural shine",
+     
       description:
           "Hair oil repairs hair by restoring moisture, strengthening the cuticle, and reducing breakage",
+        features:
+          'uitable for all scalp types, this scalp moisturizer is for anyone looking to fight oil-free hydration without any greasy shine.',
       images: ['assets/baresprey.jpg'],
       rating: 4.5,
       boughtCount: "50k+",
-      ingredients: ["Biotin (Vitamin B7)", "Argan Oil", "Vitamin E"],
-      concern: "Dryness",
-      hairType: "All",
-      scalpType: "Normal",
-      formulation: "Liquid",
-      preference: "Paraben Free",
+    
       price: 350,
       discountPrice: 250,
       offer: "20% OFF",
@@ -305,6 +289,153 @@ class _HairstylingState extends State<Hairstyling> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+class ProductDetailPage extends StatelessWidget {
+  final Products product;
+  const ProductDetailPage({super.key, required this.product});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(product.name),
+        backgroundColor: Appcolor.textcolor,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 350,
+              width: double.infinity,
+              color: Appcolor.lightwhite,
+              child: Image.asset(product.images[0], fit: BoxFit.contain),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    product.name,
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  const SizedBox(height: 15),
+                  Row(
+                    children: [
+                      Text(
+                        "₹${product.discountPrice}",
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        "₹${product.price}",
+                        style: const TextStyle(
+                          fontSize: 16,
+                          decoration: TextDecoration.lineThrough,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        product.offer,
+                        style: TextStyle(
+                          color: Appcolor.introtext,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Divider(height: 30),
+                  const Text(
+                    "Product Description",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    product.description,
+                    style: const TextStyle(fontSize: 15, height: 1.6),
+                  ),
+                  const SizedBox(height: 10),
+                  const Text(
+                    "Features",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    product.features,
+                    style: const TextStyle(fontSize: 15, height: 1.6),
+                  ),
+
+                  const SizedBox(height: 30),
+                  Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Appcolor.appcolor,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.favorite_border,
+                            color: Appcolor.appcolor,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: SizedBox(
+                          height: 50,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Appcolor.appcolor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                            onPressed: () async {
+                              await CartStorage.addToCart(product);
+                              if (!context.mounted) return;
+                              // 👇 Navigate to cart screen after adding
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Shopingbag(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              "ADD TO BAG",
+                              style: TextStyle(
+                                color: Appcolor.backcolor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

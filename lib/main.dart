@@ -1,10 +1,16 @@
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/images/image.dart';
+
+import 'package:beautyproducts/screens/homescreen/bathskin/bathselect.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/bodyoils.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/bodyscrubs.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/sellercombo.dart';
+import 'package:beautyproducts/screens/homescreen/bathskin/showergel.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/womencare.dart';
-import 'package:beautyproducts/screens/homescreen/hairproducteachone/hairmasks.dart';
+
 import 'package:beautyproducts/screens/loginscreen/registration.dart';
 import 'package:beautyproducts/screens/loginscreen/signup.dart';
-import 'package:beautyproducts/screens/splashscreen/splashscreen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +23,7 @@ class MyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Splashscreen());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Bathselect());
   }
 }
 
