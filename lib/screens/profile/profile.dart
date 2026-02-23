@@ -293,7 +293,7 @@ class _ProfileState extends State<Profile> {
       leading: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: (color ?? Appcolor.appcolor).withOpacity(0.1),
+          color: (color ?? Appcolor.appcolor),
           borderRadius: BorderRadius.circular(10),
         ),
         child: icon is IconData
@@ -317,7 +317,7 @@ class _ProfileState extends State<Profile> {
   }
 }
 
-// --- CURVED HEADER CLIPPER ---
+
 class CurvedClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
@@ -332,7 +332,7 @@ class CurvedClipper extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
 
-// --- NEW LOGOUT SCREEN ---
+
 class LogoutScreen extends StatelessWidget {
   const LogoutScreen({super.key});
 
@@ -371,11 +371,12 @@ class LogoutScreen extends StatelessWidget {
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
               ),
                 onPressed: () async {
-                // CLEAR SESSION
+              
                 var authBox = Hive.box("authBox");
                 await authBox.put("isLoggedIn", false);
 
-                // GO TO LOGIN AND CLEAR HISTORY
+               
+                if(!context.mounted)return;
                 Navigator.pushAndRemoveUntil(
                   context, 
                   MaterialPageRoute(builder: (context) => const Beautyproduct()),
