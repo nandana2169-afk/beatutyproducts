@@ -1,10 +1,15 @@
 import 'dart:io';
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/Icons/icons.dart';
+import 'package:beautyproducts/screens/loginscreen/registration.dart';
+import 'package:beautyproducts/screens/profile/editprofile.dart';
+import 'package:beautyproducts/screens/profile/privacy.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/likes.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/notifications.dart';
 import 'package:beautyproducts/screens/shoppingbaglikes/shopingbag.dart';
+import 'package:beautyproducts/screens/welcome/beautyproduct.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Profile extends StatefulWidget {
@@ -15,6 +20,11 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  /// -------- USER DATA --------
+  String userName = "Caroline Steele";
+  String userBio = "Photographer and Artist";
+  String userAddress = "New York, USA";
+
   File? _profileImage;
   final ImagePicker _picker = ImagePicker();
 
@@ -33,16 +43,50 @@ class _ProfileState extends State<Profile> {
     });
   }
 
+  // --- LOGOUT DIALOG ---
+  void _showLogoutDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          title: const Text("Logout"),
+          content: const Text("Are you sure you want to log out of Blopink?"),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text("Cancel", style: TextStyle(color: Colors.grey)),
+            ),
+            TextButton(
+              onPressed: () {
+                // 1. Close Dialog
+                Navigator.pop(context);
+                
+                // 2. Navigate to the Logout Screen and clear navigation history
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LogoutScreen()),
+                  (route) => false,
+                );
+              },
+              child: const Text("Logout", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Appcolor.textcolor, 
-      body: SingleChildScrollView( 
+      backgroundColor: Appcolor.textcolor,
+      body: SingleChildScrollView(
         child: Column(
           children: [
+            /// -------- HEADER --------
             Stack(
               children: [
-                // 1. Curved Gradient Background
                 ClipPath(
                   clipper: CurvedClipper(),
                   child: Container(
@@ -61,7 +105,6 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
 
-                // 2. Aligned Header
                 Positioned(
                   top: MediaQuery.of(context).padding.top + 10,
                   left: 0,
@@ -77,7 +120,7 @@ class _ProfileState extends State<Profile> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.only(right: 48.0), 
+                            padding: const EdgeInsets.only(right: 48.0),
                             child: Text(
                               "PROFILE",
                               textAlign: TextAlign.center,
@@ -95,7 +138,7 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
 
-                // 3. Profile Image
+                /// -------- PROFILE IMAGE --------
                 Positioned(
                   bottom: 0,
                   left: 0,
@@ -150,27 +193,28 @@ class _ProfileState extends State<Profile> {
 
             const SizedBox(height: 15),
 
-            const Text(
-              "Caroline Steele",
-              style: TextStyle(
+            Text(
+              userName,
+              style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: Colors.black87,
               ),
             ),
             const SizedBox(height: 5),
-            const Text(
-              "Photographer and Artist",
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey,
-                fontWeight: FontWeight.w400,
-              ),
+            Text(
+              userBio,
+              style: const TextStyle(fontSize: 14, color: Colors.grey),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              userAddress,
+              style: const TextStyle(fontSize: 13, color: Colors.grey),
             ),
 
             const SizedBox(height: 30),
 
-            // --- SETTINGS SECTION ---
+            /// -------- SETTINGS LIST --------
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
@@ -178,40 +222,55 @@ class _ProfileState extends State<Profile> {
                   _buildSettingsTile(
                     icon: AppIcon.person,
                     title: "Edit Profile",
-                    onTap: () {},
+                    onTap: () async {
+                      final result = await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Editprofilepage(
+                            name: userName,
+                            bio: userBio,
+                            address: userAddress,
+                            image: _profileImage,
+                          ),
+                        ),
+                      );
+                      if (result != null) {
+                        setState(() {
+                          userName = result['name'];
+                          userBio = result['bio'];
+                          userAddress = result['address'];
+                          _profileImage = result['image'];
+                        });
+                      }
+                    },
                   ),
                   _buildSettingsTile(
                     icon: AppIcon.bag,
                     title: "My Orders",
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Shopingbag()));
-                    },
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Shopingbag())),
                   ),
                   _buildSettingsTile(
                     icon: AppIcon.notifications,
                     title: "Notifications",
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Notifications()));
-                    },
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Notifications())),
                   ),
                   _buildSettingsTile(
                     icon: AppIcon.likes,
                     title: "Wishlist",
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Likes()));
-                    },
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Likes())),
                   ),
                   _buildSettingsTile(
-                    icon:AppIcon.privacy,
-                    title: "Privacy & Security",
-                    onTap: () {},
+                    icon: AppIcon.privacy,
+                    title: "Privacy Policy",
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => PrivacyPolicyPage())),
                   ),
-                  const Divider(height: 40, thickness: 0.5),
+
+                  /// LOGOUT BUTTON
                   _buildSettingsTile(
                     icon: Icons.logout,
                     title: "Logout",
-                    color: Appcolor.backcolor,
-                    onTap: () {},
+                    color: Colors.red,
+                    onTap: _showLogoutDialog,
                   ),
                 ],
               ),
@@ -223,9 +282,8 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  // FIXED: Helper method to handle both AppIcon and standard Icons
   Widget _buildSettingsTile({
-    required dynamic icon, // Changed from AppIcon to dynamic
+    required dynamic icon,
     required String title,
     required VoidCallback onTap,
     Color? color,
@@ -235,15 +293,12 @@ class _ProfileState extends State<Profile> {
       leading: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          // Use Opacity so the icon is visible against the background
-          // ignore: deprecated_member_use
           color: (color ?? Appcolor.appcolor).withOpacity(0.1),
           borderRadius: BorderRadius.circular(10),
         ),
-        // Logic to handle if icon is already a Widget or just IconData
-        child: icon is IconData 
-          ? Icon(icon, color: color ?? Appcolor.appcolor, size: 22)
-          : (icon is Widget ? icon : Icon(icon as IconData?, color: color ?? Appcolor.appcolor, size: 22)),
+        child: icon is IconData
+            ? Icon(icon, color: color ?? Appcolor.appcolor, size: 22)
+            : icon,
       ),
       title: Text(
         title,
@@ -253,26 +308,85 @@ class _ProfileState extends State<Profile> {
           color: color ?? Appcolor.backcolor,
         ),
       ),
-      trailing:  Icon(Icons.arrow_forward_ios, size: 16, color: Appcolor.backcolor),
+      trailing: Icon(
+        Icons.arrow_forward_ios,
+        size: 16,
+        color: color ?? Appcolor.backcolor,
+      ),
     );
   }
 }
 
+// --- CURVED HEADER CLIPPER ---
 class CurvedClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path();
     path.lineTo(0, size.height - 60);
-    path.quadraticBezierTo(
-      size.width / 2,
-      size.height,
-      size.width,
-      size.height - 60,
-    );
+    path.quadraticBezierTo(size.width / 2, size.height, size.width, size.height - 60);
     path.lineTo(size.width, 0);
     path.close();
     return path;
   }
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+// --- NEW LOGOUT SCREEN ---
+class LogoutScreen extends StatelessWidget {
+  const LogoutScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Appcolor.appcolor, Appcolor.purples],
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.check_circle_outline, size: 100, color: Colors.white),
+            const SizedBox(height: 20),
+            const Text(
+              "Logged Out Successfully",
+              style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              "See you soon at Blopink!",
+              style: TextStyle(color: Colors.white70, fontSize: 16),
+            ),
+            const SizedBox(height: 50),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                foregroundColor: Appcolor.appcolor,
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+              ),
+                onPressed: () async {
+                // CLEAR SESSION
+                var authBox = Hive.box("authBox");
+                await authBox.put("isLoggedIn", false);
+
+                // GO TO LOGIN AND CLEAR HISTORY
+                Navigator.pushAndRemoveUntil(
+                  context, 
+                  MaterialPageRoute(builder: (context) => const Beautyproduct()),
+                  (route) => false,
+                );
+              },
+              child: const Text("Go to Login", style: TextStyle(fontWeight: FontWeight.bold)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

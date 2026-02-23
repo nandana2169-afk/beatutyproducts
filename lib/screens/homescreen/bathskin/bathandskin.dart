@@ -54,7 +54,7 @@ class _BathandskinState extends State<Bathandskin> {
         backgroundColor: Appcolor.textcolor,
         leading: IconButton(
           onPressed: () {
-            // FIXED: Navigator.pop only needs context
+            
             Navigator.pop(context);
           },
           icon: const Icon(Icons.arrow_back),
@@ -110,16 +110,16 @@ class _BathandskinState extends State<Bathandskin> {
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     return InkWell(
-                      // --- NAVIGATION LOGIC START ---
+                    
                       onTap: () {
                         if (index == 0) {
-                          // Goes to Shampoo & Conditioners page
+                         
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => const Bathselect()),
                           );
                         } else if (index == 1) {
-                          // Goes to Hair Oil page
+                          
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => const Showergel()),
@@ -140,9 +140,9 @@ class _BathandskinState extends State<Bathandskin> {
                          else if(index ==6){
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>const Sellercombo()));
                         }
-                        // You can add more 'else if' for Serums, Masks, etc. later
+                       
                       },
-                      // --- NAVIGATION LOGIC END ---
+                     
                       child: Card(
                         elevation: 3,
                         shape: RoundedRectangleBorder(

@@ -9,7 +9,7 @@ class FavoriteService {
     final prefs = await SharedPreferences.getInstance();
     List<String> favorites = prefs.getStringList(key) ?? [];
 
-    // FIND BY NAME
+    
     int index = favorites.indexWhere((item) => jsonDecode(item)['name'] == product.name);
 
     if (index != -1) {
@@ -23,7 +23,7 @@ class FavoriteService {
   static Future<bool> isFavorite(Products product) async {
     final prefs = await SharedPreferences.getInstance();
     List<String> favorites = prefs.getStringList(key) ?? [];
-    // CHECK BY NAME
+  
     return favorites.any((item) => jsonDecode(item)['name'] == product.name);
   }
 

@@ -1,4 +1,5 @@
 import 'package:beautyproducts/Colors/colors.dart';
+import 'package:beautyproducts/Icons/icons.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/bodyoils.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/bodyscrubs.dart';
 import 'package:beautyproducts/screens/homescreen/bathskin/rollons.dart';
@@ -121,8 +122,8 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Search Products"),backgroundColor: Appcolor.textcolor,
+      appBar: AppBar(leading: IconButton(onPressed: (){ Navigator.pop(context);}, icon: AppIcon.iconsapp),
+        title: const Text("Search Products",style: TextStyle(fontWeight: FontWeight.bold),),backgroundColor: Appcolor.textcolor,
       ),backgroundColor: Appcolor.appcolor,
       body: Padding(
         padding: const EdgeInsets.all(16),

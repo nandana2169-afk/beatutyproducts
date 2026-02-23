@@ -106,8 +106,8 @@ class _DiscoverState extends State<Discover> {
                 child: Row(
                   children: [
                     Container(
-                      width: 120,
-                      height: 120,
+                      width: 90,
+                      height: 90,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Appcolor.backcolor,

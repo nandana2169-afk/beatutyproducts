@@ -1,8 +1,12 @@
 import 'package:beautyproducts/screens/lockscreens/lockscreen.dart';
+import 'package:beautyproducts/screens/loginscreen/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:beautyproducts/Colors/colors.dart';
 import 'package:beautyproducts/screens/bottomnavigation/bottomnavigation.dart';
 import 'package:beautyproducts/screens/loginscreen/signup.dart';
+
+import 'package:hive/hive.dart';
+
 
 class Registration extends StatefulWidget {
   const Registration({super.key});
@@ -14,9 +18,11 @@ class Registration extends StatefulWidget {
 class _RegistrationState extends State<Registration> {
   final TextEditingController phonecontroller = TextEditingController();
   final TextEditingController passwordcontroller = TextEditingController();
-
+  final TextEditingController emailcontroller = TextEditingController();
   final _formkey = GlobalKey<FormState>();
   bool rememberMe = false;
+  bool showPassword = true;
+  bool showConfirmPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +34,7 @@ class _RegistrationState extends State<Registration> {
             key: _formkey,
             child: Column(
               children: [
-                /// 🔹 Space from top
                 const SizedBox(height: 150),
-
-                /// 🔹 Login Title
                 Center(
                   child: Text(
                     'Log In',
@@ -42,80 +45,64 @@ class _RegistrationState extends State<Registration> {
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 50),
-
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      /// ✔ Email / Phone
                       Padding(
                         padding: const EdgeInsets.all(10),
-                        child: TextFormField(
-                          controller: phonecontroller,
-
-                          decoration: InputDecoration(
-                            hintText: "Email/Phonenumber",
-                            prefixIcon: Icon(
-                              Icons.email,
-                              color: Appcolor.backcolor,
-                            ),
-
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(color: Appcolor.appcolor),
-                              // ),focusedBorder:OutlineInputBorder(borderSide: BorderSide(color: Appcolor.appcolor,))
-                            ),
+                        child:  TextFormField(
+                        controller: emailcontroller,
+                        decoration: InputDecoration(
+                          hintText: 'Email',
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Appcolor.appcolor, width: 2),
                           ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter phone number or email';
-                            }
-
-                            bool isPhone = RegExp(
-                              r'^(?:\+91|0)?[6-9]\d{9}$',
-                            ).hasMatch(value);
-
-                            bool isEmail = RegExp(
-                              r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-                            ).hasMatch(value);
-
-                            if (!isPhone && !isEmail) {
-                              return 'Enter valid phone number OR email';
-                            }
-                            return null;
-                          },
+                          prefixIcon: Icon(Icons.email, color: Appcolor.backcolor),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Appcolor.appcolor),
+                          ),
                         ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) return 'Please enter email';
+                          if (!RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$').hasMatch(value)) return 'Please add valid email';
+                          return null;
+                        },
                       ),
-
-                      /// ✔ Password
+                      ),
                       Padding(
                         padding: const EdgeInsets.all(10),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            hintText: "Password",
-                            prefixIcon: Icon(
-                              Icons.password_outlined,
-                              color: Appcolor.backcolor,
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(color: Appcolor.appcolor),
-                            ),
+                        child:TextFormField(
+                        controller: passwordcontroller,
+                        obscureText: showPassword,
+                        autocorrect: false,
+                        enableSuggestions: false,
+                        decoration: InputDecoration(
+                          hintText: "Password",
+                          prefixIcon: Icon(Icons.lock_outline, color: Appcolor.backcolor),
+                          suffixIcon: IconButton(
+                            icon: Icon(showPassword ? Icons.visibility_off : Icons.visibility, color: Appcolor.backcolor),
+                            onPressed: () => setState(() => showPassword = !showPassword),
                           ),
-                          controller: passwordcontroller,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter password';
-                            }
-                            return null;
-                          },
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Appcolor.appcolor),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(color: Appcolor.appcolor, width: 2),
+                          ),
                         ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) return 'Please enter password';
+                          return null;
+                        },
                       ),
-
-                      /// ✔ Remember Me & Forgot Password
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Row(
@@ -132,96 +119,61 @@ class _RegistrationState extends State<Registration> {
                                     });
                                   },
                                 ),
-                                Text(
-                                  "Remember me",
-                                  style: TextStyle(color: Appcolor.backcolor),
-                                ),
+                                Text("Remember me", style: TextStyle(color: Appcolor.backcolor)),
                               ],
                             ),
-
-                            /// 🔥 FORGOT PASSWORD NAVIGATION
                             GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const Lockscreen(),
-                                  ),
-                                );
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => const Lockscreen()));
                               },
-                              child: Text(
-                                "Forgot Password?",
-                                style: TextStyle(color: Appcolor.backcolor),
-                              ),
+                              child: Text("Forgot Password?", style: TextStyle(color: Appcolor.backcolor)),
                             ),
                           ],
                         ),
                       ),
 
-                      /// ✔ Login Button
+                   
                       Padding(
                         padding: const EdgeInsets.all(15),
                         child: SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () {
-                              if (_formkey.currentState!.validate()) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Bottomnavigation(),
-                                  ),
-                                );
-                              }
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Appcolor.appcolor,
-                            ),
-                            child: Text(
-                              'Log In',
-                              style: TextStyle(
-                                color: Appcolor.backcolor,
-                                fontSize: 20,
-                              ),
-                            ),
+                             onPressed: () {
+                          if (_formkey.currentState!.validate()) {
+                            var userBox = Hive.box<UserModel>('userBox');
+                            UserModel? user = userBox.get(emailcontroller.text);
+
+                            if (user != null && user.password == passwordcontroller.text) {
+                              // SUCCESS: Save login session
+                              var authBox = Hive.box("authBox");
+                              authBox.put("isLoggedIn", true);
+
+                              Navigator.pushReplacement(
+                                context, MaterialPageRoute(builder: (context) => const Bottomnavigation()));
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Invalid Credentials")));
+                            }
+                          }
+                        },
+                            style: ElevatedButton.styleFrom(backgroundColor: Appcolor.appcolor),
+                            child: Text('Log In', style: TextStyle(color: Appcolor.backcolor, fontSize: 20)),
                           ),
                         ),
                       ),
 
-                      /// ✔ Signup Link
                       const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            "Need an account? ",
-                            style: TextStyle(
-                              color: Appcolor.backcolor,
-                              fontSize: 15,
-                            ),
-                          ),
+                          Text("Need an account? ", style: TextStyle(color: Appcolor.backcolor, fontSize: 15)),
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const Signup(),
-                                ),
-                              );
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => const Signup()));
                             },
-                            child: Text(
-                              "SIGN UP",
-                              style: TextStyle(
-                                color: Appcolor.purples,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
-                              ),
-                            ),
+                            child: Text("SIGN UP", style: TextStyle(color: Appcolor.purples, fontWeight: FontWeight.bold, fontSize: 15)),
                           ),
                         ],
                       ),
-
                       const SizedBox(height: 20),
                     ],
                   ),
